@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d4292af3ce7a8842b9dc82683e656da, type: 3}
+  m_Name: CharacterStats
+  m_EditorClassIdentifier: 
+  _stats:
+    MaxLife: 100
+    MovementSpeed: 10
+    weakness: {fileID: 11400000, guid: 8dcfd58f68b7e50408e93622e212c4e9, type: 2}
+    resistance: {fileID: 11400000, guid: d65dfee1188ccf54bbd27e8164fb39e8, type: 2}
