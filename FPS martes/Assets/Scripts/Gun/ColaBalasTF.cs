@@ -1,21 +1,26 @@
-﻿public class ColaBalasTF : ColaTDA
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using StarterAssets;
+
+public class ColaBalasTF : ColaTDA
     {
-        int[] a; // arreglo en donde se guarda la informacion
+        int[] ColaBalas; // arreglo en donde se guarda la informacion
         int indice; // variable entera en donde se guarda la cantidad de elementos que se tienen guardados
 
         public void InicializarCola()
         {
-            a = new int[100];
+        ColaBalas = new int[100];
             indice = 0;
         }
 
-        public void Acolar(int x)
+        public void Acolar(GameObject x)
         {
             for (int i = indice - 1; i >= 0; i--)
             {
-                a[i + 1] = a[i];
+            ColaBalas[i + 1] = ColaBalas[i];
             }
-            a[0] = x;
+        //ColaBalas[0] = x;
             
             indice++;
         }
@@ -31,7 +36,7 @@
 
         public int Primero()
         {
-            return a[indice - 1];
+            return ColaBalas[indice - 1];
         }
     }
 
