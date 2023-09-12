@@ -20,6 +20,7 @@ public class IAEnemigo : MonoBehaviour
     {
         if(transform.position != points[current].position) 
         {
+            
             transform.position = Vector3.MoveTowards(transform.position,points[current].position, speed * Time.deltaTime);
         }
         else
