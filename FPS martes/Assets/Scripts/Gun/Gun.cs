@@ -6,6 +6,8 @@ using System;
 
 public class Gun : MonoBehaviour
 {
+    public bool CanShoot;
+
     private StarterAssetsInputs _input;
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private GameObject _firePoint;
@@ -13,11 +15,10 @@ public class Gun : MonoBehaviour
     [SerializeField] private int _magSize = 7;
     private GameObject LastBullet;
     private ColaTDA colaBalas = new ColaBalasTF();
- 
+    
     // Start is called before the first frame update
     void Start()
     {
-       
         _input = transform.root.GetComponent<StarterAssetsInputs>();
         for (int i = 0; i < _magSize; i++)
         {
@@ -30,7 +31,8 @@ public class Gun : MonoBehaviour
     {
         if (_input.shoot)
         { 
-            Shoot();
+            if(CanShoot)
+                Shoot();
             _input.shoot = false;    
         } 
         
