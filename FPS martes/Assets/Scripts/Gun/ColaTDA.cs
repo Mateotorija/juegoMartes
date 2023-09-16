@@ -6,14 +6,14 @@ using StarterAssets;
 
 public interface ColaTDA
     {
-        void InicializarCola();
+        //void InicializarCola();
         // siempre que la cola este inicializada
-        void Acolar(GameObject x);
+        void Acolar(GameObject GameObject);
         // siempre que la cola este inicializada y no este vacıa
-        void Desacolar();
+        void Desacolar(GameObject LastBullet);
         // siempre que la cola este inicializada
         bool ColaVacia();
-        // siempre que la cola este inicializada y no este vacıa
-        int Primero();
+    // siempre que la cola este inicializada y no este vacıa
+        object Primero();
     }
 
