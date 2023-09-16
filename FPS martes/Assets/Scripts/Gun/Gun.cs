@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using StarterAssets;
+using System;
 
 public class Gun : MonoBehaviour
 {
@@ -9,12 +10,19 @@ public class Gun : MonoBehaviour
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private GameObject _firePoint;
     [SerializeField] private float _bulletSpeed = 600f;
-    Queue colaBalas = new Queue();
+    [SerializeField] private int _magSize = 7;
+    private GameObject LastBullet;
+    private ColaTDA colaBalas = new ColaBalasTF();
  
     // Start is called before the first frame update
     void Start()
     {
+       
         _input = transform.root.GetComponent<StarterAssetsInputs>();
+        for (int i = 0; i < _magSize; i++)
+        {
+            colaBalas.Acolar(_bulletPrefab);
+        }
     }
 
     // Update is called once per frame
@@ -24,20 +32,30 @@ public class Gun : MonoBehaviour
         { 
             Shoot();
             _input.shoot = false;    
-        }
-        foreach (object obj in colaBalas)
-        {
-            Debug.Log(obj.ToString() + "\n");
-        }
+        } 
+        
+        
     }
 
     void Shoot()
     {
-        GameObject bullet = Instantiate(_bulletPrefab, _firePoint.transform.position, transform.rotation);
-        bullet.GetComponent<Rigidbody>().AddForce(transform.forward * _bulletSpeed);
-        Destroy(bullet, 1f);
-        colaBalas.Enqueue(bullet);
-        
-       
+        if (colaBalas.ColaVacia() == false)
+        {
+            GameObject bullet = Instantiate(_bulletPrefab, _firePoint.transform.position, transform.rotation);
+            bullet.GetComponent<Rigidbody>().AddForce(transform.forward * _bulletSpeed);
+            Destroy(bullet, 1f);
+            //colaBalas.Enqueue(bullet);
+            LastBullet = (GameObject)colaBalas.Primero();
+            colaBalas.Desacolar(LastBullet);
+        }
+
     }
+
+    //public object InicializarCola()
+    //{
+    //    colaBalas = new T colaBalas [100];
+    //    _indice = 0;
+    //}
+
+  
 }
