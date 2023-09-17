@@ -35,6 +35,15 @@ public class Gun : MonoBehaviour
                 Shoot();
             _input.shoot = false;    
         } 
+
+        if (_input.reload)
+        {
+            if (_magSize < 7)
+            {
+                Reload();
+                _input.reload = false;
+            }
+        }
         
         
     }
@@ -53,6 +62,14 @@ public class Gun : MonoBehaviour
 
     }
 
+    private void Reload()
+    {
+        for (int i = 0; i < _magSize; i++)
+        {
+            colaBalas.Acolar(_bulletPrefab);
+        }
+
+    }
     //public object InicializarCola()
     //{
     //    colaBalas = new T colaBalas [100];
