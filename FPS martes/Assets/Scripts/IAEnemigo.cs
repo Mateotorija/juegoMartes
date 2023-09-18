@@ -27,5 +27,6 @@ public class IAEnemigo : MonoBehaviour
         {
             current=(current+1)%points.Length;
         }
+        transform.LookAt(points[current]);
     }
 }
