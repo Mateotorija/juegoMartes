@@ -38,13 +38,11 @@ public class Gun : MonoBehaviour
 
         if (_input.reload)
         {
-            if (_magSize < 7)
-            {
-                Reload();
-                _input.reload = false;
-            }
+            Reload();
+            _input.reload = false;
         }
-        
+
+       
         
     }
 
