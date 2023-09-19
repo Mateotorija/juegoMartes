@@ -5,6 +5,9 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public Gun Gun;
+
+    public bool LoopShouldEnd;
+
     void Start()
     {
         Init();
@@ -18,5 +21,19 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 0f;
         Gun.CanShoot = false;
+    }
+
+    IEnumerator GameLoop()
+    {
+        while (LoopShouldEnd == false)
+        {
+            //Spawn Targets
+            //Move Targets
+            //Damage Targets
+            //Remove Targets
+            //
+
+            yield return null;
+        }
     }
 }
