@@ -40,6 +40,7 @@ public class ColaBalasTF : ColaTDA
     //        return ColaBalas[indice - 1];
     //    }
     #endregion
+    public Queue ColaBalas => colaBalas;
 
     int _indice;
     private Queue colaBalas = new Queue();
@@ -51,7 +52,7 @@ public class ColaBalasTF : ColaTDA
         //}
         colaBalas.Enqueue(GameObject);
         //ColaBalas[0] = x;
-
+        
         _indice++;
     }
     public void Desacolar(GameObject LastBullet)
@@ -63,7 +64,7 @@ public class ColaBalasTF : ColaTDA
         colaBalas.Dequeue();
         _indice--;
     }
-
+    
     public bool ColaVacia()
     {
         return (_indice == 0);
@@ -78,4 +79,3 @@ public class ColaBalasTF : ColaTDA
         return colaBalas.Peek();
     }
 }
-

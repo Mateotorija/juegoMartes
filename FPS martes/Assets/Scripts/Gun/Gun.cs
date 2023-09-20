@@ -20,12 +20,8 @@ public class Gun : MonoBehaviour
     void Start()
     {
         _input = transform.root.GetComponent<StarterAssetsInputs>();
-        for (int i = 0; i < _magSize; i++)
-        {
-            colaBalas.Acolar(_bulletPrefab);
-        }
+        Reload();
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -41,11 +37,7 @@ public class Gun : MonoBehaviour
             Reload();
             _input.reload = false;
         }
-
-       
-        
     }
-
     void Shoot()
     {
         if (colaBalas.ColaVacia() == false)
@@ -57,9 +49,7 @@ public class Gun : MonoBehaviour
             LastBullet = (GameObject)colaBalas.Primero();
             colaBalas.Desacolar(LastBullet);
         }
-
     }
-
     private void Reload()
     {
         for (int i = 0; i < _magSize; i++)
@@ -73,6 +63,4 @@ public class Gun : MonoBehaviour
     //    colaBalas = new T colaBalas [100];
     //    _indice = 0;
     //}
-
-  
 }
