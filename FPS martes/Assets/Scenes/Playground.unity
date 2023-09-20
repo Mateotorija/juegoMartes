@@ -254,7 +254,6 @@ GameObject:
   m_Component:
   - component: {fileID: 107818220}
   - component: {fileID: 107818219}
-  - component: {fileID: 107818221}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -275,7 +274,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Gun: {fileID: 325668654}
-  LoopShouldEnd: 0
 --- !u!4 &107818220
 Transform:
   m_ObjectHideFlags: 0
@@ -291,18 +289,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &107818221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107818218}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 751f70c64b3812b4b83edece99cc1705, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &111612955 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4129105527529010196, guid: 49cd0a45b1e8f1d45ad57f7f5b8804b5,
@@ -3472,37 +3458,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c6c39731da0b13c41831862e6451238c, type: 3}
---- !u!1 &1739527259
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1739527260}
-  m_Layer: 0
-  m_Name: Targets
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1739527260
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1739527259}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.174564, y: 0, z: 9.310617}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1758663030
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4192,7 +4147,7 @@ PrefabInstance:
     - target: {fileID: 4861718553300456437, guid: e099c594214862849b2d25f8f7aebcf5,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5202673417925822799, guid: e099c594214862849b2d25f8f7aebcf5,
         type: 3}
@@ -4227,7 +4182,7 @@ PrefabInstance:
     - target: {fileID: 5202673417925822799, guid: e099c594214862849b2d25f8f7aebcf5,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.97
+      value: -2.64
       objectReference: {fileID: 0}
     - target: {fileID: 5202673417925822799, guid: e099c594214862849b2d25f8f7aebcf5,
         type: 3}
