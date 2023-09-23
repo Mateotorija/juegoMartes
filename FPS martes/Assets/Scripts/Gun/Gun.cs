@@ -46,6 +46,8 @@ public class Gun : MonoBehaviour
             bullet.GetComponent<Rigidbody>().AddForce(transform.forward * _bulletSpeed);
             Destroy(bullet, 1f);
             //colaBalas.Enqueue(bullet);
+
+
             LastBullet = (GameObject)colaBalas.Primero();
             colaBalas.Desacolar(LastBullet);
         }
