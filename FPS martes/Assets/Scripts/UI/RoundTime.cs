@@ -12,7 +12,7 @@ public class RoundTime : MonoBehaviour
     #region PRIVATE_PROPERTIES
     [SerializeField] private TMP_Text countDownText;
     private float currentTime = 0;
-    private float startingTime = 30f;
+    private float startingTime = 20f;
     #endregion
 
     #region UNITY_METHODS
