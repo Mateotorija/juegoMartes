@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
 
     [SerializeField] private LayerMask _hitteableLayer;
+    private Score _score;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,13 +16,15 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+      
     }
 
     public void OnTriggerEnter(Collider other)
     {
         if (((1 << other.gameObject.layer) & _hitteableLayer) != 0)
         {
+            Debug.Log("Hit" + other);
+            _score.ScorePoints(10);
             Destroy(other.gameObject);
         }
     }
