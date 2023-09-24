@@ -4,22 +4,31 @@ using UnityEngine;
 
 public class HighscoreManager : MonoBehaviour
 {
-    public static HighscoreManager Instance;
-    private int a = 10;
-    private void Awake()
-    {
-        if(Instance == null)
-        {
-            Instance = this;
-            DontDestroyOnLoad(this.gameObject);
-        }
-        else
-        {
-            Destroy(this.gameObject);
-        }
-    }
+    public List<RoundScore> scoreList = new List<RoundScore>();
+
     private void Start()
     {
-        Instance.a = 2;
+        int roundNumber = 1;
+        bool scoreExists = true;
+        while (scoreExists)
+        {
+            string scoreKey = "PlayerScore_Round" + roundNumber;
+            if (PlayerPrefs.HasKey(scoreKey))
+            {
+                int score = PlayerPrefs.GetInt(scoreKey);
+                scoreList.Add(new RoundScore { RoundNumber = roundNumber, Score = score });
+                roundNumber++;
+            }
+            else
+            {
+                scoreExists = false;
+            }
+            scoreList.Sort((a, b) => b.Score.CompareTo(a.Score));
+
+            foreach(var scoreInfo in scoreList)
+            {
+                Debug.Log("Ronda " + scoreInfo.RoundNumber + ": " + scoreInfo.Score);
+            }
+        }
     }
 }

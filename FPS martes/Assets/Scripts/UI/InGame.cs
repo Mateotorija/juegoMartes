@@ -1,11 +1,16 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InGame : MonoBehaviour
 {
     #region PUBLIC_PROPERTIES
     public Gun Gun;
+    public RoundTime RoundTime;
+    public Score Score;
+    private bool scoreSaved = false;
     #endregion
 
     #region PRIVATE_PROPERTIES
@@ -22,6 +27,8 @@ public class InGame : MonoBehaviour
     {
         HandleEnter();
         HandleEscape();
+        HandleReset();
+        HandleMenu();
     }
     #endregion
 
@@ -53,6 +60,36 @@ public class InGame : MonoBehaviour
             {
                 Time.timeScale = 0f;
                 Gun.CanShoot = false;
+            }
+        }
+    }
+    private void HandleReset()
+    {
+        if (RoundTime.IsEndRound && !scoreSaved)
+        {
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                Score.SaveScore();
+                RoundTime.InitRoundTime();
+                Score.InitScore();
+                Time.timeScale = 1f;
+                Gun.CanShoot = true;
+
+                scoreSaved = true;
+            }
+        }
+    }
+    private void HandleMenu()
+    {
+        if (RoundTime.IsEndRound && !scoreSaved)
+        {
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                Score.SaveScore();
+                Time.timeScale = 1f;
+                
+                SceneManager.LoadScene(0);
+                scoreSaved = true;
             }
         }
     }
