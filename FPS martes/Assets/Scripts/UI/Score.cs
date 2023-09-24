@@ -11,21 +11,15 @@ public class Score : MonoBehaviour
     #endregion
 
     #region UNITY_METHODS
-    void Start()
-    {
-        _scoreText = GetComponent<TextMeshProUGUI>();
-    }
-    void Update()
-    {
-        UpdateScoreText();
-    }
     #endregion
 
     #region METHODS
-    private void UpdateScoreText() => _scoreText.text = _score.ToString("0");
-    public void ScorePoints(int points)
+    public void UpdateScoreText() => _scoreText.text = "Score: " + _score.ToString("0");
+    public void ScorePoints()
     {
-        _score += points;
+        _score += 10;
+        UpdateScoreText();
+        Debug.Log("Sumaste ");
     }
     #endregion
 }

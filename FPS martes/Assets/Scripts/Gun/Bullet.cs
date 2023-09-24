@@ -1,19 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+using System;
 
 public class Bullet : MonoBehaviour
 {
-
     [SerializeField] private LayerMask _hitteableLayer;
-    private Score _score;
-    // Start is called before the first frame update
+    [SerializeField] private Score score;
+    private void Awake()
+    {
+        score = FindObjectOfType<Score>();
+        if (score == null)
+            Debug.LogError("no esta");
+    }
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
       
@@ -24,7 +29,8 @@ public class Bullet : MonoBehaviour
         if (((1 << other.gameObject.layer) & _hitteableLayer) != 0)
         {
             Debug.Log("Hit" + other);
-            _score.ScorePoints(10);
+            //OnCollisionScoreEvent?.Invoke();
+            score.ScorePoints();
             Destroy(other.gameObject);
         }
     }

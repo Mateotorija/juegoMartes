@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    [SerializeField] private GameObject _highscorePanel;
     public void Play()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -13,4 +14,6 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();
     }
+    public void OpenHighscorePanel() => _highscorePanel.SetActive(true);
+    public void CloseHighscorePanel() => _highscorePanel.SetActive(false);
 }
