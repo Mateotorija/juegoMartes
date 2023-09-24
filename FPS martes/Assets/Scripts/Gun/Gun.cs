@@ -14,7 +14,7 @@ public class Gun : MonoBehaviour
     [SerializeField] private float _bulletSpeed = 600f;
     [SerializeField] private int _magSize = 7;
     private GameObject LastBullet;
-    private ColaTDA colaBalas = new ColaBalasTF();
+    private ColaTDA bulletQueue = new ColaBalasTF();
     
     // Start is called before the first frame update
     void Start()
@@ -26,6 +26,7 @@ public class Gun : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //verificacion de Input
         if (_input.shoot)
         { 
             if(CanShoot)
@@ -39,31 +40,26 @@ public class Gun : MonoBehaviour
             _input.reload = false;
         }
     }
-    void Shoot()
+    void Shoot() //logica disparo 
     {
-        if (colaBalas.ColaVacia() == false)
+        if (bulletQueue.ColaVacia() == false)//verifica si la cola esta vacia 
         {
+            //intanceo la bala y le agrego velocidad, despues de un segundo se destruye
             GameObject bullet = Instantiate(_bulletPrefab, _firePoint.transform.position, transform.rotation);
             bullet.GetComponent<Rigidbody>().AddForce(transform.forward * _bulletSpeed);
             Destroy(bullet, 1f);
-            //colaBalas.Enqueue(bullet);
-
-
-            LastBullet = (GameObject)colaBalas.Primero();
-            colaBalas.Desacolar(LastBullet);
+            //obtengo la primer bala disparada y la saco de la Queue
+            LastBullet = (GameObject)bulletQueue.Primero();
+            bulletQueue.Desacolar(LastBullet);
         }
     }
-    private void Reload()
+    private void Reload() //lleno la Queue de las balas con un for
     {
         for (int i = 0; i < _magSize; i++)
         {
-            colaBalas.Acolar(_bulletPrefab);
+            bulletQueue.Acolar(_bulletPrefab);
         }
 
     }
-    //public object InicializarCola()
-    //{
-    //    colaBalas = new T colaBalas [100];
-    //    _indice = 0;
-    //}
+   
 }
