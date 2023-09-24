@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Waypoints : MonoBehaviour
 {
+    // empty con los child waypoints en array y se cuentan su lenght con un for
     public static Transform[] points;
 
     void Awake()
