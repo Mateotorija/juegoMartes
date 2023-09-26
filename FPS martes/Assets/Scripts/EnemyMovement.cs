@@ -28,16 +28,18 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
-
     // cuando llega la ultimop waypoint muere/desapwnea
     void GetNextWaypoint()
     {
-        if (wavepointIndex >= Waypoints.points.Length - 1)
+        if (wavepointIndex < Waypoints.points.Length - 1)
+        {
+            wavepointIndex++;
+            targets = Waypoints.points[wavepointIndex];
+        }
+        else
         {
             Die();
         }
-        wavepointIndex++;
-        targets = Waypoints.points[wavepointIndex];
     }
 
     public void Die()
@@ -47,3 +49,13 @@ public class EnemyMovement : MonoBehaviour
         Destroy(gameObject);
     }
 }
+
+//void GetNextWaypoint() (viejo)
+//{
+//    if (wavepointIndex >= Waypoints.points.Length - 1)
+//    {
+//        Die();
+//    }
+//    wavepointIndex++;
+//    targets = Waypoints.points[wavepointIndex];
+//}
