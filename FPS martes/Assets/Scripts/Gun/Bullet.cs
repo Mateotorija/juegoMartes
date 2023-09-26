@@ -15,7 +15,7 @@ public class Bullet : MonoBehaviour
     {
         if (((1 << other.gameObject.layer) & _hitteableLayer) != 0)
         {
-            _score.ScorePoints();
+            //_score.ScorePoints();
             Destroy(other.gameObject);
             Destroy(this.gameObject);
         }
