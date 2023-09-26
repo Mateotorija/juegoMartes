@@ -5,7 +5,7 @@ using UnityEngine;
 public class WaveSpawner : MonoBehaviour
 {
     // interger que tiene en cuenta la cantidad de enemigos vivos
-    public static int EnemiesAlive = 0;
+    [SerializeField] public static int EnemiesAlive = 0;
 
     //array para guardar la cantidad de waves y dentro de ella es puede asignar el tipo de enmigo cantidad y su velocidad y vida
     public Wave[] waves;
@@ -16,9 +16,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] public float timeBetweenWaves = 5f;
     [SerializeField] private float countdown = 2f;
 
-    private int waveIndex = 0;
-
-    private StackTF<Wave> waveStack = new StackTF<Wave>();
+    private StackTF<Wave> waveStack = new StackTF<Wave>(); //creamos el stack
 
     private void Start()
     {
@@ -41,11 +39,10 @@ public class WaveSpawner : MonoBehaviour
             countdown = timeBetweenWaves;
             return;
         }
-
         // se cuenta para tras
         countdown -= Time.deltaTime;
     }
-    private void FillWaveStack()
+    private void FillWaveStack() //Llenamos el stack de enemigos
     {
         foreach (Wave wave in waves)
         {
@@ -55,15 +52,15 @@ public class WaveSpawner : MonoBehaviour
 
     IEnumerator SpawnWave()
     {
-        if (waveStack.EmptyStack())
+        if (waveStack.EmptyStack()) // chequeamos si el stack esta vacio
         {
             Debug.Log("LEVEL COMPLETE!");
             this.enabled = false;
             yield break;
         }
 
-        Wave wave = waveStack.Top();
-        waveStack.Unstack();
+        Wave wave = waveStack.Top(); // miramos el ultimo enemigo agregado
+        waveStack.Unstack(); // lo sacamos de la pila
 
         for (int i = 0; i < wave.count; i++)
         {
