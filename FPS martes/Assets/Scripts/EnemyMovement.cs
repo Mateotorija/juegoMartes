@@ -44,7 +44,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void Die()
     {
-        WaveSpawner.EnemiesEscape++;
+        WaveSpawner.EnemiesAlive++;
 
         Destroy(gameObject);
     }
