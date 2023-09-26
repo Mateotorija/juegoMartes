@@ -25,7 +25,7 @@ public class ColaBalasTF : ColaTDA
         _indice--;
     }
     
-    public bool ColaVacia() //berifica que la Queue no este vacia 
+    public bool ColaVacia() //verifica que la Queue no este vacia 
     {
         return (_indice == 0);
     }
