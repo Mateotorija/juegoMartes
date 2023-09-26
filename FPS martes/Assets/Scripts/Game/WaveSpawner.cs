@@ -57,7 +57,7 @@ public class WaveSpawner : MonoBehaviour
     {
         if (waveStack.EmptyStack())
         {
-            Debug.Log("LEVEL WON!");
+            Debug.Log("LEVEL COMPLETE!");
             this.enabled = false;
             yield break;
         }

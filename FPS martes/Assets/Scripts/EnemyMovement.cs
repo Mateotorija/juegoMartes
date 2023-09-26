@@ -15,6 +15,8 @@ public class EnemyMovement : MonoBehaviour
         
     }
 
+    // EL PREFAB SE DIRIGE A CADA WAYPOINT
+
     private void Update()
     {
         Vector3 dir = targets.position - transform.position;
@@ -27,6 +29,8 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+
+    // cuando llega la ultimop waypoint muere/desapwnea
     void GetNextWaypoint()
     {
         if (wavepointIndex >= Waypoints.points.Length - 1)
