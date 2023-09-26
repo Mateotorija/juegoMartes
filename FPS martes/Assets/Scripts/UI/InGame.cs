@@ -15,6 +15,7 @@ public class InGame : MonoBehaviour
 
     #region PRIVATE_PROPERTIES
     [SerializeField] private GameObject _pauseText;
+    [SerializeField] private GameObject _endText;
     private bool _isPlaying;
     #endregion
 
@@ -70,12 +71,14 @@ public class InGame : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.R))
             {
                 Score.SaveScore();
-                RoundTime.InitRoundTime();
-                Score.InitScore();
-                Time.timeScale = 1f;
-                Gun.CanShoot = true;
-
                 scoreSaved = true;
+
+                //_endText.SetActive(false);
+                //RoundTime.InitRoundTime();
+                //Score.InitScore();
+                //Time.timeScale = 1f;
+                //Gun.CanShoot = true;
+                SceneManager.LoadScene(1);
             }
         }
     }
@@ -85,6 +88,7 @@ public class InGame : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.M))
             {
+                _endText.SetActive(false);
                 Score.SaveScore();
                 Time.timeScale = 1f;
                 

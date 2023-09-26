@@ -117,7 +117,7 @@ MonoBehaviour:
   _hitteableLayer:
     serializedVersion: 2
     m_Bits: 1024
-  _score: {fileID: 0}
+  _target: {fileID: 5434467637736721774, guid: d5dae24b463c84048b9e64efb66f374a, type: 3}
 --- !u!136 &2811830981834896787
 CapsuleCollider:
   m_ObjectHideFlags: 0

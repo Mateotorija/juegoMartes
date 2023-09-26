@@ -8,7 +8,7 @@ public class Score : MonoBehaviour
     public RoundTime RoundCount;
     #region PRIVATE_PROPERTIES
     [SerializeField] private TMP_Text _scoreText;
-    private int _score;
+    [SerializeField] private int _score;
     #endregion
 
     #region UNITY_METHODS
@@ -20,9 +20,10 @@ public class Score : MonoBehaviour
 
     #region METHODS
     public void UpdateScoreText() => _scoreText.text = "Score: " + _score.ToString("0");
-    public void ScorePoints()
+    public void ScorePoints(int points)
     {
-        _score += 10;
+        Debug.Log("Hit");
+        _score += points;
         UpdateScoreText();
         Debug.Log("Sumaste ");
     }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 8900000, guid: 619e305f5165a9946b7f72464e44ca4a, type: 3}
   m_Sun: {fileID: 2114283754330233425}
-  m_IndirectSpecularColor: {r: 0.02915215, g: 0.064445496, b: 0.12695035, a: 1}
+  m_IndirectSpecularColor: {r: 0.029152213, g: 0.064445764, b: 0.12695098, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1787,8 +1787,9 @@ MonoBehaviour:
 
     Press "M" to go to the menu'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 75f33b89e01409540b4f3738f66a868d, type: 2}
+  m_sharedMaterial: {fileID: -4751039837223936970, guid: 75f33b89e01409540b4f3738f66a868d,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2700,7 +2701,7 @@ MonoBehaviour:
   GameManager: {fileID: 107818219}
   IsEndRound: 0
   countDownText: {fileID: 913791624}
-  startingTime: 20
+  startingTime: 30
   _endRoundPanel: {fileID: 1341030294}
 --- !u!114 &901579050
 MonoBehaviour:
@@ -2718,6 +2719,7 @@ MonoBehaviour:
   RoundTime: {fileID: 901579049}
   Score: {fileID: 901579051}
   _pauseText: {fileID: 1675591009}
+  _endText: {fileID: 1341030294}
 --- !u!114 &901579051
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2732,6 +2734,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RoundCount: {fileID: 901579049}
   _scoreText: {fileID: 1672673677}
+  _score: 1
 --- !u!1 &913791622
 GameObject:
   m_ObjectHideFlags: 0
@@ -3532,7 +3535,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4293,7 +4296,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1672673676
 RectTransform:
   m_ObjectHideFlags: 0

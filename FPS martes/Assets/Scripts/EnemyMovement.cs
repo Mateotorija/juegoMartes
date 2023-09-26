@@ -12,7 +12,6 @@ public class EnemyMovement : MonoBehaviour
     private void Start()
     {
         targets = Waypoints.points[0];
-        
     }
 
     // EL PREFAB SE DIRIGE A CADA WAYPOINT
@@ -41,7 +40,7 @@ public class EnemyMovement : MonoBehaviour
         targets = Waypoints.points[wavepointIndex];
     }
 
-    void Die()
+    public void Die()
     {
         WaveSpawner.EnemiesAlive--;
 
