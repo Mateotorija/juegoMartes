@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface StackTDA
+public interface StackTDA<T>
 {
     void InitPila(); // Inicializar pila
-    void Stack(Wave item); // Apilar
+    void Stack(T item); // Apilar
     void Unstack(); // Desapilar
     bool EmptyStack(); // Pila vacia
-    Wave Top(); // Tope
+    T Top(); // Tope
 }

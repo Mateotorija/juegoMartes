@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StackTF<T> : StackTDA
+public class StackTF<T> : StackTDA<T>
 {
-    private Stack<Wave> stack = new Stack<Wave>();
+    private Stack<T> stack = new Stack<T>();
     int _index = 0;
     public void InitPila()
     {
         throw new System.NotImplementedException();
     }
-    public void Stack(Wave item)
+    public void Stack(T item)
     {
         stack.Push(item);
         _index++;
@@ -31,12 +31,12 @@ public class StackTF<T> : StackTDA
     {
         return _index == 0;
     }
-    public Wave Top()
+    public T Top()
     {
         if(stack.Count > 0)
         {
             return stack.Peek();
         }
-        return null;
+        return default(T);
     }
 }
