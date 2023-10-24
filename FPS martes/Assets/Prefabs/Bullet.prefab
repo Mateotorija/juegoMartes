@@ -114,10 +114,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ca4708782e678d4e8bae53a5b1407a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Power: 20
+  LifeTime: 3
   _hitteableLayer:
     serializedVersion: 2
     m_Bits: 1024
-  _target: {fileID: 5434467637736721774, guid: d5dae24b463c84048b9e64efb66f374a, type: 3}
 --- !u!136 &2811830981834896787
 CapsuleCollider:
   m_ObjectHideFlags: 0

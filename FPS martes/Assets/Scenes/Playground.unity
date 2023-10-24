@@ -304,11 +304,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - enemy: {fileID: 8478554887292581623, guid: 8b82afb7bd7a0bf4db9f04dfe63eafa5, type: 3}
-    count: 20
+    count: 19
     rate: 1
   spawnPoint: {fileID: 1315942620}
   timeBetweenWaves: 1
-  countdown: 2
+  countdown: 1
 --- !u!4 &111612955 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4129105527529010196, guid: 49cd0a45b1e8f1d45ad57f7f5b8804b5,

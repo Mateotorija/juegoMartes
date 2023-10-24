@@ -11,7 +11,7 @@ public class Gun : MonoBehaviour
     private StarterAssetsInputs _input;
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private GameObject _firePoint;
-    [SerializeField] private float _bulletSpeed = 600f;
+    //[SerializeField] private float _bulletSpeed = 600f;
     [SerializeField] private int _magSize = 7;
     private GameObject LastBullet;
     private ColaTDA bulletQueue = new ColaBalasTF();
@@ -46,8 +46,8 @@ public class Gun : MonoBehaviour
         {
             //intanceo la bala y le agrego velocidad, despues de un segundo se destruye
             GameObject bullet = Instantiate(_bulletPrefab, _firePoint.transform.position, transform.rotation);
-            bullet.GetComponent<Rigidbody>().AddForce(transform.forward * _bulletSpeed);
-            Destroy(bullet, 1f);
+            //bullet.GetComponent<Rigidbody>().AddForce(transform.forward * _bulletSpeed);  esta logica la voy a pasar a la bala
+            //Destroy(bullet, 1f);
             //obtengo la primer bala disparada y la saco de la Queue
             LastBullet = (GameObject)bulletQueue.Primero();
             bulletQueue.Desacolar(LastBullet);
@@ -59,7 +59,5 @@ public class Gun : MonoBehaviour
         {
             bulletQueue.Acolar(_bulletPrefab);
         }
-
     }
-   
 }
