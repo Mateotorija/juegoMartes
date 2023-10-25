@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public Gun Gun;
+   
 
     private void Start()
     {

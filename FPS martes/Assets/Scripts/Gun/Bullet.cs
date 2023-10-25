@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
 
     private float time = 0;
     [SerializeField] private LayerMask _hitteableLayer;
-
+    private ABBHighScore highscore;
     Rigidbody bulletRB;
     private void Start()
     {
@@ -24,12 +24,13 @@ public class Bullet : MonoBehaviour
         if (time >= LifeTime)
             Destroy(this.gameObject);
     }
-    //public void OnTriggerEnter(Collider other)
-    //{
-    //    if (((1 << other.gameObject.layer) & _hitteableLayer) != 0)
-    //    {
-    //        Destroy(other.gameObject);
-    //        Destroy(this.gameObject);
-    //    }
-    //}
+    public void OnTriggerEnter(Collider other)
+    {
+        if (((1 << other.gameObject.layer) & _hitteableLayer) != 0)
+        {
+            //highscore.Puntaje++;
+            Destroy(other.gameObject);
+            Destroy(this.gameObject);
+        }
+    }
 }
