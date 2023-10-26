@@ -160,30 +160,7 @@ public class ABB : ABBTDA
     }
 }
 
-public class Jugador
-{
-    public string Nombre { get; set; }
 
-    public int Puntaje { get; set; }
 
-    public Jugador(string nombre, int puntaje)
-    {
-        Nombre = nombre;
-        Puntaje = puntaje;
-    }
-}
 
-public interface ABBTDA 
-{
-    Jugador Raiz();
-    ABBTDA HijoIzq();
-    ABBTDA HijoDer();
-    bool ArbolVacio();
-    void IncializarArbol();
-    void AgregarJugador(Jugador jugador);
-    void EliminarJugador(int puntaje);
-    Jugador JugadorConMayorPuntaje();
-    Jugador JugadorConMenorPuntaje();
-
-}
 
