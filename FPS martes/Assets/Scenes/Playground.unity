@@ -1016,7 +1016,6 @@ MonoBehaviour:
   _bulletPrefab: {fileID: 2394286469397533788, guid: 054bea85e34b280469365ed42df75504,
     type: 3}
   _firePoint: {fileID: 37214142}
-  _bulletSpeed: 600
   _magSize: 7
 --- !u!4 &325668655 stripped
 Transform:
@@ -4692,7 +4691,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1672673676
 RectTransform:
   m_ObjectHideFlags: 0

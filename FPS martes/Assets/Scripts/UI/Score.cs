@@ -16,6 +16,10 @@ public class Score : MonoBehaviour
     {
         InitScore();
     }
+    private void Update()
+    {
+        UpdateScoreText();
+    }
     #endregion
 
     #region METHODS
@@ -30,14 +34,9 @@ public class Score : MonoBehaviour
     public void SaveScore()
     {
         string scoreKey = "PlayerScore_Round" + RoundCount.RoundCount;
-
-        if (PlayerPrefs.HasKey(scoreKey))
-        {
-            RoundCount.RoundCount++;
-            scoreKey = "PlayerScore_Round" + RoundCount.RoundCount;
-        }
-        PlayerPrefs.SetInt(scoreKey, _score);
-        PlayerPrefs.Save();
+        
+        RoundCount.RoundCount++;
+        scoreKey = "PlayerScore_Round" + RoundCount.RoundCount;
     }
     public void InitScore()
     {
