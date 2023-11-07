@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 8900000, guid: 619e305f5165a9946b7f72464e44ca4a, type: 3}
   m_Sun: {fileID: 2114283754330233425}
-  m_IndirectSpecularColor: {r: 0.029152155, g: 0.064445674, b: 0.12695067, a: 1}
+  m_IndirectSpecularColor: {r: 0.029152213, g: 0.064445764, b: 0.12695098, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2949,8 +2949,10 @@ MonoBehaviour:
   GameManager: {fileID: 107818219}
   IsEndRound: 0
   countDownText: {fileID: 913791624}
+  _roundCount: 1
   startingTime: 30
   _endRoundPanel: {fileID: 1341030294}
+  _abbHighscore: {fileID: 1028392504}
 --- !u!114 &901579050
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3243,7 +3245,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1028392503
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3278,6 +3280,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   puntajesText: {fileID: 1028392505}
   cantidadJugadores: 0
+  _score: {fileID: 901579051}
+  _playerABB: {fileID: 2055183764}
   Puntaje: 0
 --- !u!114 &1028392505
 MonoBehaviour:
@@ -4861,7 +4865,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -145.865, y: -71}
+  m_AnchoredPosition: {x: -145.865, y: -75}
   m_SizeDelta: {x: 291.73, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1672673677
@@ -4948,7 +4952,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -97.422424, y: -44.73598, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

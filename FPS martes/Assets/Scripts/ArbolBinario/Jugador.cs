@@ -13,5 +13,4 @@ public class Jugador
         Nombre = nombre;
         Puntaje = puntaje;
     }
-    
 }

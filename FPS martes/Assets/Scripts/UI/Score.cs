@@ -8,7 +8,7 @@ public class Score : MonoBehaviour
     public RoundTime RoundCount;
     #region PRIVATE_PROPERTIES
     [SerializeField] private TMP_Text _scoreText;
-    [SerializeField] private int _score;
+    [SerializeField] public int _score;
     #endregion
 
     #region UNITY_METHODS

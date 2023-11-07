@@ -10,7 +10,6 @@ public class Bullet : MonoBehaviour
     private float time = 0;
     [SerializeField] private LayerMask _hitteableLayer;
     [SerializeField] private PlayerABB _playerABB;
-    //[SerializeField] private Score _score;
     Rigidbody bulletRB;
     private void Start()
     {
@@ -31,8 +30,8 @@ public class Bullet : MonoBehaviour
         {
             Score score = FindObjectOfType<Score>();
             score.ScorePoints(10);
-            //highscore.Puntaje++;
-            //_playerABB.Points += 1;
+            PlayerABB playerABB = FindObjectOfType<PlayerABB>();
+            playerABB.Points += 1;
             Destroy(other.gameObject);
             Destroy(this.gameObject);
         }

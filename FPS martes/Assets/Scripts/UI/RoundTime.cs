@@ -19,15 +19,18 @@ public class RoundTime : MonoBehaviour
     #region PRIVATE_PROPERTIES
     [SerializeField] private TMP_Text countDownText;
     private float currentTime = 0;
-    private int _roundCount = 1;
+    [SerializeField] private int _roundCount = 1;
     [SerializeField] private float startingTime = 20f;
     [SerializeField] private GameObject _endRoundPanel;
-    #endregion
+    [SerializeField] private ABBHighScore _abbHighscore;
+    private bool zero;
+    #endregion 
 
     #region UNITY_METHODS
     void Start()
     {
         InitRoundTime();
+        zero = false;
     }
     void Update()
     {
@@ -53,10 +56,14 @@ public class RoundTime : MonoBehaviour
             currentTime = 0;
             GameManager.Init();
             EndRound();
+            if(!zero)
+                _abbHighscore.MostrarPuntajes();
+            zero = true;
         }
     }
     private void EndRound()
     {
+        
         _endRoundPanel.SetActive(true);
         IsEndRound = true;
     }
