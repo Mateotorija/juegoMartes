@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
 
     private float time = 0;
     [SerializeField] private LayerMask _hitteableLayer;
-    private ABBHighScore highscore;
+    private PlayerABB _playerABB;
     Rigidbody bulletRB;
     private void Start()
     {
@@ -29,6 +29,7 @@ public class Bullet : MonoBehaviour
         if (((1 << other.gameObject.layer) & _hitteableLayer) != 0)
         {
             //highscore.Puntaje++;
+            _playerABB.Points += 1;
             Destroy(other.gameObject);
             Destroy(this.gameObject);
         }

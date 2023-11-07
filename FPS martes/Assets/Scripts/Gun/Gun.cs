@@ -16,6 +16,7 @@ public class Gun : MonoBehaviour
     private GameObject LastBullet;
     private ColaTDA bulletQueue = new ColaBalasTF();
     
+    
     // Start is called before the first frame update
     void Start()
     {

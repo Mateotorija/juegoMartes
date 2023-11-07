@@ -34,7 +34,7 @@ public class ABBHighScore : MonoBehaviour
         MostrarPuntajes();
     }
 
-    private void MostrarPuntajes()
+    public void MostrarPuntajes()
     {
         string puntajesTexto = "";
         List<Jugador> jugadoresOrdenados = abb.ObtenerJugadoresEnOrden();

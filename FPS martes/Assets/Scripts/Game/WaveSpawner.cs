@@ -17,6 +17,7 @@ public class WaveSpawner : MonoBehaviour
     [SerializeField] private float countdown = 2f;
 
     private StackTF<Wave> waveStack = new StackTF<Wave>(); //creamos el stack
+    private ABBHighScore _abbHighscore;
 
     private void Start()
     {
@@ -56,6 +57,7 @@ public class WaveSpawner : MonoBehaviour
         {
             Debug.Log("LEVEL COMPLETE!");
             this.enabled = false;
+            _abbHighscore.MostrarPuntajes();
             yield break;
         }
 
