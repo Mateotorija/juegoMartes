@@ -23,6 +23,7 @@ public class RoundTime : MonoBehaviour
     [SerializeField] private float startingTime = 20f;
     [SerializeField] private GameObject _endRoundPanel;
     [SerializeField] private ABBHighScore _abbHighscore;
+    [SerializeField] private Score _score;
     private bool zero;
     #endregion 
 
@@ -60,6 +61,10 @@ public class RoundTime : MonoBehaviour
                 _abbHighscore.MostrarPuntajes();
             zero = true;
             _gameManager.IsPlaying = false;
+            if (_score._score >= 120)
+                _gameManager._winText.SetActive(true);
+            else
+                _gameManager._losserText.SetActive(true);
         }
     }
     private void EndRound()

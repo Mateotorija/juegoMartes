@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject _pauseText;
     [SerializeField] private GameObject _startText;
     [SerializeField] private GameObject _endText;
+    public GameObject _winText;
+    public GameObject _losserText;
 
     [SerializeField] private WaveSpawner _waveSpawner;
     [SerializeField] private RoundTime _roundTime;
@@ -34,6 +37,7 @@ public class GameManager : MonoBehaviour
         HandleEnter();
         HandleReset();
         HandleMenu();
+        
     }
     #endregion
 
@@ -43,6 +47,8 @@ public class GameManager : MonoBehaviour
         PauseGame();
         Gun.CanShoot = false;
         IsPlaying = false;
+        _winText.SetActive(false);
+        _losserText.SetActive(false);
     }
     public void PauseGame()
     {
