@@ -14,7 +14,7 @@ public class WaveSpawner : MonoBehaviour
     public Transform spawnPoint;
 
     [SerializeField] public float timeBetweenWaves = 5f;
-    [SerializeField] private float countdown = 2f;
+    [SerializeField] public float countdown = 2f;
 
     private StackTF<Wave> waveStack = new StackTF<Wave>(); //creamos el stack
     //private ABBHighScore _abbHighscore;
@@ -26,7 +26,6 @@ public class WaveSpawner : MonoBehaviour
 
     private void Update()
     {
-
         // el codigo no sigue si hay enemigos vivos
         if (EnemiesAlive > 0)
         {
@@ -43,7 +42,7 @@ public class WaveSpawner : MonoBehaviour
         // se cuenta para tras
         countdown -= Time.deltaTime;
     }
-    private void FillWaveStack() //Llenamos el stack de enemigos
+    public void FillWaveStack() //Llenamos el stack de enemigos
     {
         foreach (Wave wave in waves)
         {

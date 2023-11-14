@@ -6,7 +6,6 @@ using TMPro;
 public class RoundTime : MonoBehaviour
 {
     #region PUBLIC_PROPERTIES
-    public GameManager GameManager;
     public float CurrentTime => currentTime;
     public bool IsEndRound;
     public int RoundCount
@@ -17,6 +16,7 @@ public class RoundTime : MonoBehaviour
     #endregion
 
     #region PRIVATE_PROPERTIES
+    [SerializeField] private GameManager _gameManager;
     [SerializeField] private TMP_Text countDownText;
     private float currentTime = 0;
     [SerializeField] private int _roundCount = 1;
@@ -54,16 +54,16 @@ public class RoundTime : MonoBehaviour
         if (currentTime <= 0)
         {
             currentTime = 0;
-            GameManager.Init();
+            _gameManager.Init();
             EndRound();
             if(!zero)
                 _abbHighscore.MostrarPuntajes();
             zero = true;
+            _gameManager.IsPlaying = false;
         }
     }
     private void EndRound()
     {
-        
         _endRoundPanel.SetActive(true);
         IsEndRound = true;
     }
