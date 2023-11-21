@@ -153,9 +153,9 @@ public class ABB : ABBTDA
     {
         if(nodo != null)
         {
-            ObtenerJugadoresEnOrden(nodo.left, jugadores);
-            jugadores.Add(nodo.Jugador);
             ObtenerJugadoresEnOrden(nodo.right, jugadores);
+            jugadores.Add(nodo.Jugador);
+            ObtenerJugadoresEnOrden(nodo.left, jugadores);
         }
     }
     public void LoadPlayerFromList(List<Jugador> jugadores)

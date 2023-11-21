@@ -20,7 +20,10 @@ public class ScoreUI : MonoBehaviour
         {
             string name = PlayerPrefs.GetString("Player", "{}");
 
-            ScoreManager.AddScore(new Score2(name, currentScore));
+            //ScoreManager.AddScore(new Score2(name, currentScore));
+
+            ScoreManager.AddScore(new Jugador(name, currentScore));
+
             PlayerPrefs.DeleteKey("Score");
         }
         DisplayScores();
@@ -34,9 +37,12 @@ public class ScoreUI : MonoBehaviour
         {
             var row = Instantiate(RowUI, transform).GetComponent<RowUI>();
             row.Rank.text = (i + 1).ToString();
-            row.Name.text = scores[i].name;
-            row.Score.text = scores[i].score.ToString();
-            Jugador jugador = new Jugador(scores[i].name, scores[i].score);
+            //row.Name.text = scores[i].name;
+            row.Name.text = scores[i].Nombre;
+            //row.Score.text = scores[i].score.ToString();
+            row.Score.text = scores[i].Puntaje.ToString();
+            //Jugador jugador = new Jugador(scores[i].name, scores[i].score);
+            Jugador jugador = new Jugador(scores[i].Nombre, scores[i].Puntaje);
             abb.AgregarJugador(jugador);
         }
     }
@@ -59,5 +65,9 @@ public class ScoreUI : MonoBehaviour
         {
             Debug.Log((i + 1) + " rank " + players[i].Nombre + " - points: " + players[i].Puntaje);
         }
+    }
+    public ABB GetABB()
+    {
+        return abb;
     }
 }

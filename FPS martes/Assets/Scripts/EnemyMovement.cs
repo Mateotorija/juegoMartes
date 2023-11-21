@@ -9,6 +9,8 @@ public class EnemyMovement : MonoBehaviour
     private Transform targets;
     private int wavepointIndex = 0;
 
+    //public List<Nodo> _waypoints = new();
+
     private void Start()
     {
         targets = Waypoints.points[0];

@@ -6,10 +6,10 @@ using UnityEngine;
 [Serializable]
 public class ScoreData
 {
-    public List<Score2> scores;
+    public List<Jugador> scores;
 
     public ScoreData()
     {
-        scores = new List<Score2>();
+        scores = new List<Jugador>();
     }
 }
