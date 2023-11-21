@@ -24,17 +24,6 @@ public class ABBHighScore : MonoBehaviour
         Debug.Log(jugadoresOrdenados.Count);
     }
 
-    //public void GenerarPuntajes()
-    //{
-    //    abb.IncializarArbol();
-
-    //    for(int i = 1; i <= cantidadJugadores; i++)
-    //    {
-    //        Jugador jugador = new Jugador("jugador " + i, Puntaje);
-    //        abb.AgregarJugador(jugador);
-    //    }
-    //    MostrarPuntajes();
-    //}
 
     public void MostrarPuntajes()
     {
