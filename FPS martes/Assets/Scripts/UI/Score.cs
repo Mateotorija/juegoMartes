@@ -9,6 +9,7 @@ public class Score : MonoBehaviour
     #region PRIVATE_PROPERTIES
     [SerializeField] private TMP_Text _scoreText;
     [SerializeField] public int _score;
+    private int large = 1;
     #endregion
 
     #region UNITY_METHODS
@@ -33,10 +34,7 @@ public class Score : MonoBehaviour
     }
     public void SaveScore()
     {
-        string scoreKey = "PlayerScore_Round" + RoundCount.RoundCount;
-        
-        RoundCount.RoundCount++;
-        scoreKey = "PlayerScore_Round" + RoundCount.RoundCount;
+        PlayerPrefs.SetInt("Score", _score);
     }
     public void InitScore()
     {
