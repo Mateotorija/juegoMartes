@@ -150,4 +150,9 @@ public class GrafoLA : GrafoTDA
         //Se encontr´o la arista entre los dos nodos
         return aux.pesoArista;
     }
+
+    public List<int> ObtenerAdyacentesDeVertices(int verticeIndex)
+    {
+        throw new System.NotImplementedException();
+    }
 }

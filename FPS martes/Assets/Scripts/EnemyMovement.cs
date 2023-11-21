@@ -51,13 +51,3 @@ public class EnemyMovement : MonoBehaviour
         Destroy(gameObject);
     }
 }
-
-//void GetNextWaypoint() (viejo)
-//{
-//    if (wavepointIndex >= Waypoints.points.Length - 1)
-//    {
-//        Die();
-//    }
-//    wavepointIndex++;
-//    targets = Waypoints.points[wavepointIndex];
-//}

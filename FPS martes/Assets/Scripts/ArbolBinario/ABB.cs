@@ -158,9 +158,4 @@ public class ABB : ABBTDA
             ObtenerJugadoresEnOrden(nodo.left, jugadores);
         }
     }
-    public void LoadPlayerFromList(List<Jugador> jugadores)
-    {
-        foreach (Jugador jugador in jugadores)
-            AgregarJugador(jugador);
-    }
 }

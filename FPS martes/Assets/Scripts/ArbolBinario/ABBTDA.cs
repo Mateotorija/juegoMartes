@@ -14,5 +14,4 @@ public interface ABBTDA
     Jugador JugadorConMayorPuntaje();
     Jugador JugadorConMenorPuntaje();
     void ObtenerJugadoresEnOrden(Node nodo, List<Jugador> jugadores);
-    void LoadPlayerFromList(List<Jugador> jugadores);
 }

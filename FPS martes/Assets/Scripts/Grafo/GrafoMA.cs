@@ -35,12 +35,10 @@ public class GrafoMA : GrafoTDA
         {
             MAdy[k, ind] = MAdy[k, cantNodos - 1];
         }
-
         for (int k = 0; k < cantNodos; k++)
         {
             MAdy[ind, k] = MAdy[cantNodos - 1, k];
         }
-
         Etiqs[ind] = Etiqs[cantNodos - 1];
         cantNodos--;
     }
@@ -52,7 +50,6 @@ public class GrafoMA : GrafoTDA
         {
             i--;
         }
-
         return i;
     }
 
@@ -69,7 +66,6 @@ public class GrafoMA : GrafoTDA
 
     public void AgregarArista(int v1, int v2, int peso)
     {
-
         int o = Vert2Indice(v1);
         int d = Vert2Indice(v2);
         Debug.Log($"v1: {v1}, v2: {v2}, o: {o}, d: {d}");
