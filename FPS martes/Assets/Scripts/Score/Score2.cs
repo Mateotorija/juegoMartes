@@ -7,8 +7,8 @@ using UnityEngine;
 public class Score2
 {
     public string name;
-    public float score;
-    public Score2(string name, float score)
+    public int score;
+    public Score2(string name, int score)
     {
         this.name = name;
         this.score = score;

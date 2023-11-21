@@ -6,10 +6,9 @@ using System;
 [Serializable]
 public class Jugador
 {
-    public string Nombre { get; set; }
-    
-    public int Puntaje { get; set; }
-    
+    public string Nombre;
+
+    public int Puntaje;
     public Jugador(string nombre, int puntaje)
     {
         Nombre = nombre;
