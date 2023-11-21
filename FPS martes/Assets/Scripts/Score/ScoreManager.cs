@@ -23,7 +23,6 @@ public class ScoreManager : MonoBehaviour
     }
     public IEnumerable<Jugador> GetHighScores()
     {
-        //return sd.scores.OrderByDescending(x => x.Puntaje);
         return abb.ObtenerJugadoresEnOrden();
     }
     public void AddScore(Jugador score)
@@ -35,7 +34,6 @@ public class ScoreManager : MonoBehaviour
     {
         SaveScore();
     }
-
     public void SaveScore()
     {
         var json = JsonUtility.ToJson(sd);

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface GrafoTDA 
 {
-    void InicializarGrafo();
+    void InicializarGrafo(int cantNodos);
     void AgregarVertice(int v);
     void EliminarVertice(int v);
     ConjuntoTDA Vertices();

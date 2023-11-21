@@ -12,7 +12,6 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject _profilePanel;
     [SerializeField] private TMP_InputField _inputField;
     [SerializeField] private TMP_Text _profileText;
-    [SerializeField] private test2 _test2;
     public bool canPlay = false;
     private string _profileName;
     private void Start()

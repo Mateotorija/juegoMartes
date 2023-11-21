@@ -9,7 +9,7 @@ public class GrafoMA : GrafoTDA
     public int[] Etiqs;
     public int cantNodos;
 
-    public void InicializarGrafo()
+    public void InicializarGrafo(int cantNodos)
     {
         MAdy = new int[n, n];
         Etiqs = new int[n];

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Nodo
 {
-    public int ID;
     public int info;
     public Nodo sig;
 }
