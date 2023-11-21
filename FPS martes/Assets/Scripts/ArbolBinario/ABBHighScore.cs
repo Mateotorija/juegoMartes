@@ -12,13 +12,11 @@ public class ABBHighScore : MonoBehaviour
     [SerializeField] private Score _score;
     [SerializeField] private PlayerABB _playerABB;
     public int Puntaje;
-    // Start is called before the first frame update
     void Start()
     {
         cantidadJugadores++;
         
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -50,9 +48,4 @@ public class ABBHighScore : MonoBehaviour
         }
         puntajesText.text = puntajesTexto;
     }
-
-    //public void Click()
-    //{
-    //    GenerarPuntajes();
-    //}
 }

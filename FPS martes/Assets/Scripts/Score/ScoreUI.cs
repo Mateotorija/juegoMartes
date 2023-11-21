@@ -17,8 +17,8 @@ public class ScoreUI : MonoBehaviour
         {
             string name = PlayerPrefs.GetString("Player", "{}");
             Jugador newPlayer = new Jugador(name, currentScore);
-            _abbHighScore.abb.AgregarJugador(newPlayer);
             ScoreManager.AddScore(new Score2(name, currentScore));
+            //_abbHighScore.abb.AgregarJugador(newPlayer);
         }
         DisplayScores();
     }
