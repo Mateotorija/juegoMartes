@@ -12,14 +12,24 @@ public class MainMenu : MonoBehaviour
     [SerializeField] private GameObject _profilePanel;
     [SerializeField] private TMP_InputField _inputField;
     [SerializeField] private TMP_Text _profileText;
+    [SerializeField] private test2 _test2;
+    public bool canPlay = false;
     private string _profileName;
     private void Start()
     {
         _profileName = PlayerPrefs.GetString("Player");
+        UpdateCanPlay();
     }
     public void Play()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if (canPlay)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        else
+            Debug.Log("No se puede jugar sin un perfil");
+    }
+    private void UpdateCanPlay()
+    {
+        canPlay = !string.IsNullOrEmpty(_profileName);
     }
     public void Quit()
     {
@@ -35,11 +45,17 @@ public class MainMenu : MonoBehaviour
     {
         _profileName = _inputField.text;
         PlayerPrefs.SetString("Player", _profileName);
+        PlayerPrefs.Save();
         Debug.Log(_profileName);
         UpdateProfileName();
+        UpdateCanPlay();
     }
     public void UpdateProfileName() => _profileText.text = "Profile: " + _profileName;
-    public void OpenHighscorePanel() => _highscorePanel.SetActive(true);
+    public void OpenHighscorePanel() 
+    {
+        _highscorePanel.SetActive(true);
+        _test2.ListPlayer();
+    } 
     public void CloseHighscorePanel() => _highscorePanel.SetActive(false);
     public void OpenProfilePanel() 
     {

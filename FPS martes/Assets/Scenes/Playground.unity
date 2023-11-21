@@ -3736,7 +3736,7 @@ MonoBehaviour:
   _gameManager: {fileID: 107818219}
   countDownText: {fileID: 913791624}
   _roundCount: 1
-  startingTime: 5
+  startingTime: 8
   _endRoundPanel: {fileID: 1341030294}
   _abbHighscore: {fileID: 1028392504}
   _score: {fileID: 901579051}
@@ -3780,8 +3780,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _highscorePanel: {fileID: 0}
-  _gameManager: {fileID: 107818219}
-  _player: {fileID: 2055183768}
+  _profilePanel: {fileID: 0}
+  _inputField: {fileID: 0}
+  _profileText: {fileID: 0}
 --- !u!114 &901579053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8191,18 +8192,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _abbHighscore: {fileID: 1028392504}
   Points: 0
---- !u!114 &2055183768 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8616685848737228371, guid: c5efc39a8aaf6e64ea40e9ad573e9b47,
-    type: 3}
-  m_PrefabInstance: {fileID: 5393215579111688471}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2055183763}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55919ac34a26952479f3fc91f777b2fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &2075617137
 PrefabInstance:
   m_ObjectHideFlags: 0

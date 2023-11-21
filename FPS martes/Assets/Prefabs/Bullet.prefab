@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 93b25d6f8c092c745aca829a783e55df, type: 2}
+  - {fileID: 2100000, guid: 09be94595865e1f4e9d33affa5003f82, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -119,6 +119,7 @@ MonoBehaviour:
   _hitteableLayer:
     serializedVersion: 2
     m_Bits: 1024
+  _playerABB: {fileID: 0}
 --- !u!136 &2811830981834896787
 CapsuleCollider:
   m_ObjectHideFlags: 0

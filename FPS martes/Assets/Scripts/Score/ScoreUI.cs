@@ -7,7 +7,8 @@ public class ScoreUI : MonoBehaviour
 {
     public RowUI RowUI;
     public ScoreManager ScoreManager;
-    [SerializeField] private ABBHighScore _abbHighScore;
+    //[SerializeField] private ABBHighScore _abbHighScore;
+    [SerializeField] private test2 _test2;
     int currentScore;
 
     private void Start()
@@ -16,9 +17,13 @@ public class ScoreUI : MonoBehaviour
         if (currentScore > 0)
         {
             string name = PlayerPrefs.GetString("Player", "{}");
-            Jugador newPlayer = new Jugador(name, currentScore);
+
+            //Jugador newPlayer = new Jugador(name, currentScore);
             ScoreManager.AddScore(new Score2(name, currentScore));
+            //_test2.AddPlayer();
             //_abbHighScore.abb.AgregarJugador(newPlayer);
+            //PlayerPrefs.DeleteKey("Player");
+            PlayerPrefs.DeleteKey("Score");
         }
         DisplayScores();
     }

@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class Node 
 {
-    public int score;
-
+    //public int score;
     public Jugador Jugador { get; set; }
     public Node left { get; set; }
     public Node right { get; set; }
@@ -16,5 +15,4 @@ public class Node
         left = null;
         right = null;
     }
-
 }

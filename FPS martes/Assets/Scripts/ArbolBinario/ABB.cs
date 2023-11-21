@@ -149,7 +149,7 @@ public class ABB : ABBTDA
         return jugadoresEnOrden;
     }
 
-    private void ObtenerJugadoresEnOrden(Node nodo, List<Jugador> jugadores)
+    public void ObtenerJugadoresEnOrden(Node nodo, List<Jugador> jugadores)
     {
         if(nodo != null)
         {
@@ -158,9 +158,9 @@ public class ABB : ABBTDA
             ObtenerJugadoresEnOrden(nodo.left, jugadores);
         }
     }
+    public void LoadPlayerFromList(List<Jugador> jugadores)
+    {
+        foreach(Jugador jugador in jugadores)
+            AgregarJugador(jugador);
+    }
 }
-
-
-
-
-

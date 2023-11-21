@@ -283,7 +283,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   RowUI: {fileID: 8799486586526182702, guid: cbb82ffc09412854e9e2a37eb3fde247, type: 3}
   ScoreManager: {fileID: 1764869505}
-  _abbHighScore: {fileID: 0}
+  _test2: {fileID: 1248303269}
 --- !u!1 &53996212
 GameObject:
   m_ObjectHideFlags: 0
@@ -965,6 +965,8 @@ MonoBehaviour:
   _profilePanel: {fileID: 1434276607}
   _inputField: {fileID: 381527043}
   _profileText: {fileID: 1612505151}
+  _test2: {fileID: 1248303269}
+  canPlay: 0
 --- !u!1 &239755624
 GameObject:
   m_ObjectHideFlags: 0
@@ -5014,26 +5016,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1248303268}
-  - component: {fileID: 1248303267}
+  - component: {fileID: 1248303269}
   m_Layer: 0
   m_Name: test
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1248303267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1248303266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cd45773299d3cb4e9ecb4d3d24f8602, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_IsActive: 0
 --- !u!4 &1248303268
 Transform:
   m_ObjectHideFlags: 0
@@ -5049,6 +5039,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1248303269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248303266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2e5f88a58f6b774bb4b3790235998c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1258741303
 PrefabInstance:
   m_ObjectHideFlags: 0
