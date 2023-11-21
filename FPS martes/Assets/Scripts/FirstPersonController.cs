@@ -51,6 +51,12 @@ namespace StarterAssets
 		[Tooltip("How far in degrees can you move the camera down")]
 		public float BottomClamp = -90.0f;
 
+		//public bool IsGaming 
+		//{
+  //          get { return _isGaming; }
+  //          set { _isGaming = value; }
+		//}
+
 		// cinemachine
 		private float _cinemachineTargetPitch;
 
@@ -74,6 +80,7 @@ namespace StarterAssets
 
 		private const float _threshold = 0.01f;
 
+		//private bool _isGaming = false;
 		private bool IsCurrentDeviceMouse
 		{
 			get
@@ -88,12 +95,12 @@ namespace StarterAssets
 
 		private void Awake()
 		{
-			// get a reference to our main camera
-			if (_mainCamera == null)
-			{
-				_mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-			}
-		}
+            // get a reference to our main camera
+            if (_mainCamera == null)
+            {
+                _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+            }
+        }
 
 		private void Start()
 		{
@@ -119,7 +126,8 @@ namespace StarterAssets
 
 		private void LateUpdate()
 		{
-			CameraRotation();
+			//if(_isGaming)
+				CameraRotation();
 		}
 
 		private void GroundedCheck()

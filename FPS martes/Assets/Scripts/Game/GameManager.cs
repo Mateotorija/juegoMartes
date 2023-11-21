@@ -10,11 +10,18 @@ public class GameManager : MonoBehaviour
     #region PUBLIC_PROPERTIES
     public Gun Gun;
     public bool IsPlaying;
+    public GameObject InGame 
+    {
+        get { return _inGame; }
+        set { _inGame = value; }
+    }
     #endregion
 
     #region PRIVATE_PROPERTIES
     private bool scoreSaved = false;
 
+    [SerializeField] private GameObject _inGame;
+    [SerializeField] private GameObject _mainMenu;
     [SerializeField] private GameObject _pauseText;
     [SerializeField] private GameObject _startText;
     [SerializeField] private GameObject _endText;

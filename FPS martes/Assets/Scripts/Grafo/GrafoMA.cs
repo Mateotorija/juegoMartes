@@ -5,9 +5,9 @@ using UnityEngine;
 public class GrafoMA : GrafoTDA
 {
     static int n = 100;
-    int[,] MAdy;
-    int[] Etiqs;
-    int cantNodos;
+    public int[,] MAdy;
+    public int[] Etiqs;
+    public int cantNodos;
 
     public void InicializarGrafo()
     {

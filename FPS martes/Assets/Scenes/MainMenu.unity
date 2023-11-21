@@ -727,6 +727,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _highscorePanel: {fileID: 881284303}
+  _gameManager: {fileID: 0}
+  _player: {fileID: 0}
 --- !u!1001 &285689885
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2641,6 +2643,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreList: []
+  _ABBHighScore: {fileID: 0}
 --- !u!1001 &897769777
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2947,17 +2950,17 @@ PrefabInstance:
     - target: {fileID: 3795554442443007319, guid: 050f06ac3f0f0c043ba51690d2ee6687,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.788849
+      value: 188
       objectReference: {fileID: 0}
     - target: {fileID: 3795554442443007319, guid: 050f06ac3f0f0c043ba51690d2ee6687,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -291.95633
+      value: -694
       objectReference: {fileID: 0}
     - target: {fileID: 3795554442443007319, guid: 050f06ac3f0f0c043ba51690d2ee6687,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 580.5144
+      value: 577
       objectReference: {fileID: 0}
     - target: {fileID: 3795554442443007319, guid: 050f06ac3f0f0c043ba51690d2ee6687,
         type: 3}
@@ -4670,7 +4673,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1446903431}
   m_OnClick:
     m_PersistentCalls:
