@@ -2,57 +2,58 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConjuntoTA : ConjuntoTDA
+public class ConjuntoLD : ConjuntoTDA
 {
-    int[] a;
-    int cant;
-
-    public void Agregar(int x)
-    {
-        if (!this.Pertenece(x))
-        {
-            a[cant] = x;
-            cant++;
-        }
-    }
-
-    public bool ConjuntoVacio()
-    {
-        return cant == 0;
-    }
-
-    public int Elegir()
-    {
-        return a[cant - 1];
-    }
-
+    Nodo c;
     public void InicializarConjunto()
     {
-        a = new int[100];
-        cant = 0;
+        c = null;
     }
-
-    public bool Pertenece(int x)
+    public bool ConjuntoVacio()
     {
-        int i = 0;
-        while (i < cant && a[i] != x)
-        {
-            i++;
-        }
-        return (i < cant);
+        return (c == null);
     }
-
+    public void Agregar(int x)
+    {
+        /* Verifica que x no este en el conjunto */
+        if (!this.Pertenece(x))
+        {
+            Nodo aux = new Nodo();
+            aux.info = x;
+            aux.sig = c;
+            c = aux;
+        }
+    }
+    public int Elegir()
+    {
+        return c.info;
+    }
     public void Sacar(int x)
     {
-        int i = 0;
-        while (i < cant && a[i] != x)
+        if (c != null)
         {
-            i++;
+            // si es el primer elemento de la lista
+            if (c.info == x)
+            {
+                c = c.sig;
+            }
+            else
+            {
+                Nodo aux = c;
+                while (aux.sig != null && aux.sig.info != x)
+                    aux = aux.sig;
+                if (aux.sig != null)
+                    aux.sig = aux.sig.sig;
+            }
         }
-        if (i < cant)
+    }
+    public bool Pertenece(int x)
+    {
+        Nodo aux = c;
+        while ((aux != null) && (aux.info != x))
         {
-            a[i] = a[cant - 1];
-            cant--;
+            aux = aux.sig;
         }
+        return (aux != null);
     }
 }

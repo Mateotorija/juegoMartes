@@ -45,7 +45,7 @@ public class GrafoMA : GrafoTDA
         cantNodos--;
     }
 
-    private int Vert2Indice(int v)
+    public int Vert2Indice(int v)
     {
         int i = cantNodos - 1;
         while (i >= 0 && Etiqs[i] != v)
@@ -56,16 +56,16 @@ public class GrafoMA : GrafoTDA
         return i;
     }
 
-    //public ConjuntoTDA Vertices()
-    //{
-    //    ConjuntoTDA Vert = new ConjuntoLD();
-    //    Vert.InicializarConjunto();
-    //    for (int i = 0; i < cantNodos; i++)
-    //    {
-    //        Vert.Agregar(Etiqs[i]);
-    //    }
-    //    return Vert;
-    //}
+    public ConjuntoTDA Vertices()
+    {
+        ConjuntoTDA Vert = new ConjuntoLD();
+        Vert.InicializarConjunto();
+        for (int i = 0; i < cantNodos; i++)
+        {
+            Vert.Agregar(Etiqs[i]);
+        }
+        return Vert;
+    }
 
     public void AgregarArista(int v1, int v2, int peso)
     {
@@ -96,21 +96,4 @@ public class GrafoMA : GrafoTDA
         int d = Vert2Indice(v2);
         return MAdy[o, d];
     }
-    //public int PesoCamino(List<Nodes> nodes)
-    //{
-    //    int pesoTotal = 0;
-    //    for (int i = 0; i < nodes.Count; i++)
-    //    {
-    //        if(ExisteArista(nodes[i].info, nodes[i + 1].info))
-    //        {
-    //            pesoTotal += PesoArista(nodes[i].info, nodes[i + 1].info);
-    //        }
-    //        else
-    //        {
-    //            Debug.LogWarning($"No existe arista entre: {nodes[i].info} y {nodes[i + 1].info}");
-    //            return pesoTotal;
-    //        }
-    //    }
-    //    return pesoTotal;
-    //}
 }

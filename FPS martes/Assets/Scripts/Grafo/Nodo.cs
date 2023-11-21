@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Nodes
+public class Nodo
 {
     public int info;
-    public Nodes sig;
+    public Nodo sig;
 }
