@@ -53,7 +53,7 @@ public class ScoreUI : MonoBehaviour
     }
     public void ShowPlayer()
     {
-        List<Jugador> players = abb.ObtenerJugadoresEnOrden();
+        List<Jugador> players = abb.Quicksort();
 
         for (int i = 0; i < players.Count; i++)
         {

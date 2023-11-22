@@ -1813,7 +1813,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &630636407
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2874,7 +2874,7 @@ MonoBehaviour:
   _gameManager: {fileID: 107818219}
   countDownText: {fileID: 913791624}
   _roundCount: 1
-  startingTime: 8
+  startingTime: 30
   _endRoundPanel: {fileID: 1341030294}
   _abbHighscore: {fileID: 1028392504}
   _score: {fileID: 901579051}
@@ -3999,7 +3999,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1341030295
 MonoBehaviour:
   m_ObjectHideFlags: 0

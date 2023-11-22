@@ -53,7 +53,6 @@ public class MainMenu : MonoBehaviour
     public void OpenHighscorePanel() 
     {
         _highscorePanel.SetActive(true);
-        //_test2.ListPlayer();
     } 
     public void CloseHighscorePanel() => _highscorePanel.SetActive(false);
     public void OpenProfilePanel() 

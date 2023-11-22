@@ -13,5 +13,6 @@ public interface ABBTDA
     void EliminarJugador(int puntaje);
     Jugador JugadorConMayorPuntaje();
     Jugador JugadorConMenorPuntaje();
-    void ObtenerJugadoresEnOrden(Node nodo, List<Jugador> jugadores);
+    public List<Jugador> Quicksort();
+    void Quicksort(Node nodo, List<Jugador> jugadores);
 }

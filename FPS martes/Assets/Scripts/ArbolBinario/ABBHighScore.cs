@@ -20,7 +20,7 @@ public class ABBHighScore : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        List<Jugador> jugadoresOrdenados = abb.ObtenerJugadoresEnOrden();
+        List<Jugador> jugadoresOrdenados = abb.Quicksort();
         Debug.Log(jugadoresOrdenados.Count);
     }
 
@@ -28,7 +28,7 @@ public class ABBHighScore : MonoBehaviour
     public void MostrarPuntajes()
     {
         string puntajesTexto = "";
-        List<Jugador> jugadoresOrdenados = abb.ObtenerJugadoresEnOrden();
+        List<Jugador> jugadoresOrdenados = abb.Quicksort();
 
         for (int i = 0; i < jugadoresOrdenados.Count; i++)
         {

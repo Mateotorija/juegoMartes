@@ -68,7 +68,7 @@ public class GrafoMA : GrafoTDA
     {
         int o = Vert2Indice(v1);
         int d = Vert2Indice(v2);
-        Debug.Log($"v1: {v1}, v2: {v2}, o: {o}, d: {d}");
+        //Debug.Log($"v1: {v1}, v2: {v2}, o: {o}, d: {d}");
         MAdy[o, d] = peso;
     }
 

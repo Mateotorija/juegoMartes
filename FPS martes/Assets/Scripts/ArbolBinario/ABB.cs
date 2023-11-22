@@ -142,20 +142,20 @@ public class ABB : ABBTDA
         return JugadorConMayorPuntaje(nodo.left);
     }
 
-    public List<Jugador> ObtenerJugadoresEnOrden()
+    public List<Jugador> Quicksort()
     {
         List<Jugador> jugadoresEnOrden = new List<Jugador>();
-        ObtenerJugadoresEnOrden(raiz, jugadoresEnOrden);
+        Quicksort(raiz, jugadoresEnOrden);
         return jugadoresEnOrden;
     }
 
-    public void ObtenerJugadoresEnOrden(Node nodo, List<Jugador> jugadores)
+    public void Quicksort(Node nodo, List<Jugador> jugadores)
     {
         if(nodo != null)
         {
-            ObtenerJugadoresEnOrden(nodo.right, jugadores);
+            Quicksort(nodo.right, jugadores);
             jugadores.Add(nodo.Jugador);
-            ObtenerJugadoresEnOrden(nodo.left, jugadores);
+            Quicksort(nodo.left, jugadores);
         }
     }
 }

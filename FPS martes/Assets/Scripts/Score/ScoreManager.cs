@@ -23,7 +23,7 @@ public class ScoreManager : MonoBehaviour
     }
     public IEnumerable<Jugador> GetHighScores()
     {
-        return abb.ObtenerJugadoresEnOrden();
+        return abb.Quicksort();
     }
     public void AddScore(Jugador score)
     {
