@@ -4,17 +4,16 @@ using UnityEngine;
 
 public class Quicksort : MonoBehaviour
 {
-
-    static public void quickSort(Target[] arr, int left, int right)
+    static public void QuickSort(Target[] arr, int left, int right)
     {
         int pivot;
         if(left < right)
         {
             pivot = Partition(arr, left, right);
             if (pivot > 1)
-                quickSort(arr, left, pivot - 1);
+                QuickSort(arr, left, pivot - 1);
             if(pivot + 1 < right)
-                quickSort(arr, pivot + 1, right);
+                QuickSort(arr, pivot + 1, right);
         }
     }
     static public int Partition(Target[] arr, int left, int right)
