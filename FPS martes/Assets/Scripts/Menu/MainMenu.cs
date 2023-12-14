@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField] private GameObject _highscorePanel;
     [SerializeField] private GameObject _profilePanel;
+    [SerializeField] private GameObject _targetsPanel;
     [SerializeField] private TMP_InputField _inputField;
     [SerializeField] private TMP_Text _profileText;
     public bool canPlay = false;
@@ -61,4 +62,6 @@ public class MainMenu : MonoBehaviour
         _profilePanel.SetActive(true);
     } 
     public void CloseProfilePanel() => _profilePanel.SetActive(false);
+    public void OpenTargetsPanel() => _targetsPanel.SetActive(true);
+    public void CloseTargetsPanel() => _targetsPanel.SetActive(false);
 }
