@@ -18,6 +18,7 @@ public class WaveSpawner : MonoBehaviour
 
     private StackTF<Wave> waveStack = new StackTF<Wave>(); //creamos el stack
     //private ABBHighScore _abbHighscore;
+    public PruebaGrafo pruebaGrafo;
 
     private void Start()
     {
@@ -35,7 +36,7 @@ public class WaveSpawner : MonoBehaviour
         // cuando pasa cierta cantidad de tiempo se activa el spawn de los enemigos
         if (countdown <= 0f)
         {
-            StartCoroutine(SpawnWave());
+            StartCoroutine(SpawnWaveOnPath(pruebaGrafo.ruta));
             countdown = timeBetweenWaves;
             return;
         }
@@ -50,9 +51,9 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
-    IEnumerator SpawnWave()
+    public IEnumerator SpawnWaveOnPath(List<int> path)
     {
-        if (waveStack.EmptyStack()) // chequeamos si el stack esta vacio
+        if (waveStack.EmptyStack())
         {
             Debug.Log("LEVEL COMPLETE!");
             this.enabled = false;
@@ -60,21 +61,21 @@ public class WaveSpawner : MonoBehaviour
             yield break;
         }
 
-        Wave wave = waveStack.Top(); // miramos el ultimo enemigo agregado
-        waveStack.Unstack(); // lo sacamos de la pila
+        Wave wave = waveStack.Top();
+        waveStack.Unstack();
 
-        for (int i = 0; i < wave.count; i++)
+        foreach (int nodeIndex in path)
         {
             GameObject randomEnemy = wave.enemies[Random.Range(0, wave.enemies.Count)];
-            SpawnEnemy(randomEnemy);
+            SpawnEnemy(randomEnemy, nodeIndex);
             yield return new WaitForSeconds(1f / wave.rate);
         }
     }
 
-    // Spawnea los prefabs del target en el punto inicial
-    void SpawnEnemy(GameObject enemy)
+    void SpawnEnemy(GameObject enemy, int nodeIndex)
     {
-        Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
+        Vector3 spawnPosition = new Vector3(pruebaGrafo.nodosCoords[nodeIndex].x, 0.5f, pruebaGrafo.nodosCoords[nodeIndex].z);
+        Instantiate(enemy, spawnPosition, spawnPoint.rotation);
         EnemiesAlive++;
     }
 }
