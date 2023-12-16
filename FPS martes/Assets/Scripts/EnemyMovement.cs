@@ -2,9 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum TargetType
+{
+    yellow,
+    white,
+    red,
+    blue
+}
 public class EnemyMovement : MonoBehaviour
 {
     public float speed = 1f;
+    public TargetType TargetType;
+
+    public static int YellowTarget;
+    public static int WhiteTarget;
+    public static int RedTarget;
+    public static int BlueTarget;
 
     private Transform targets;
     private int wavepointIndex = 0;
@@ -45,6 +58,15 @@ public class EnemyMovement : MonoBehaviour
     public void Die()
     {
         WaveSpawner.EnemiesAlive++;
+
+        if (TargetType == TargetType.yellow)
+            YellowTarget++;
+        else if (TargetType == TargetType.white)
+            WhiteTarget++;
+        else if (TargetType == TargetType.red)
+            RedTarget++;
+        else if (TargetType == TargetType.blue)
+            BlueTarget++;
 
         Destroy(gameObject);
     }
