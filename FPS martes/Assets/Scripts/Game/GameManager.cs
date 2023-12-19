@@ -105,6 +105,7 @@ public class GameManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.R))
             {
                 _score.SaveScore();
+                _score.SaveCounter();
                 scoreSaved = true;
 
                 //_endText.SetActive(false);
@@ -125,6 +126,7 @@ public class GameManager : MonoBehaviour
             {
                 _endText.SetActive(false);
                 _score.SaveScore();
+                _score.SaveCounter();
                 Time.timeScale = 1f;
 
                 SceneManager.LoadScene(0);

@@ -24,7 +24,9 @@ public class RoundTime : MonoBehaviour
     [SerializeField] private GameObject _endRoundPanel;
     [SerializeField] private ABBHighScore _abbHighscore;
     [SerializeField] private Score _score;
+    [SerializeField] private TargetCounter _counter;
     private bool zero;
+    private bool oneTime;
     #endregion 
 
     #region UNITY_METHODS
@@ -32,6 +34,7 @@ public class RoundTime : MonoBehaviour
     {
         InitRoundTime();
         zero = false;
+        oneTime = false;
     }
     void Update()
     {
@@ -49,10 +52,11 @@ public class RoundTime : MonoBehaviour
         IsEndRound = false;
         currentTime = startingTime;
         _endRoundPanel.SetActive(false);
+        oneTime = false;
     }
     private void CountToZero()
     {
-        if (currentTime <= 0)
+        if (currentTime <= 0 && !oneTime)
         {
             currentTime = 0;
             _gameManager.Init();
@@ -65,6 +69,9 @@ public class RoundTime : MonoBehaviour
                 _gameManager._winText.SetActive(true);
             else
                 _gameManager._losserText.SetActive(true);
+            //_score.UpdateText();
+            _counter.SortAndPrint();
+            oneTime = true;
         }
     }
     private void EndRound()

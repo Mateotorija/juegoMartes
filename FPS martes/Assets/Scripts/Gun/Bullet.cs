@@ -35,5 +35,24 @@ public class Bullet : MonoBehaviour
             Destroy(other.gameObject);
             Destroy(this.gameObject);
         }
+        if (other.CompareTag("Yellow"))
+        {
+            TargetCounter counter = FindObjectOfType<TargetCounter>();
+            counter.PlusYellow();
+        } else if (other.CompareTag("White"))
+        {
+            TargetCounter counter = FindObjectOfType<TargetCounter>();
+            counter.PlusWhite();
+        }
+        else if (other.CompareTag("Red"))
+        {
+            TargetCounter counter = FindObjectOfType<TargetCounter>();
+            counter.PlusRed();
+        }
+        else if (other.CompareTag("Blue"))
+        {
+            TargetCounter counter = FindObjectOfType<TargetCounter>();
+            counter.PlusBlue();
+        }
     }
 }

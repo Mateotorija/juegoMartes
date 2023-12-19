@@ -246,7 +246,7 @@ public class PruebaGrafo : MonoBehaviour
         ruta.Reverse();
 
         // Llamar a WaveSpawner para activar la creación de oleadas siguiendo la ruta.
-        waveSpawner.StartCoroutine(waveSpawner.SpawnWaveOnPath(ruta));
+        //waveSpawner.StartCoroutine(waveSpawner.SpawnWaveOnPath(ruta));
     }
 
     

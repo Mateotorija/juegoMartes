@@ -18,7 +18,7 @@ public class WaveSpawner : MonoBehaviour
 
     private StackTF<Wave> waveStack = new StackTF<Wave>(); //creamos el stack
     //private ABBHighScore _abbHighscore;
-    public PruebaGrafo pruebaGrafo;
+    //public PruebaGrafo pruebaGrafo;
 
     private void Start()
     {
@@ -36,7 +36,8 @@ public class WaveSpawner : MonoBehaviour
         // cuando pasa cierta cantidad de tiempo se activa el spawn de los enemigos
         if (countdown <= 0f)
         {
-            StartCoroutine(SpawnWaveOnPath(pruebaGrafo.ruta));
+            StartCoroutine(SpawnWaveOnPath());
+            //StartCoroutine(SpawnWaveOnPath(pruebaGrafo.ruta));
             countdown = timeBetweenWaves;
             return;
         }
@@ -51,7 +52,7 @@ public class WaveSpawner : MonoBehaviour
         }
     }
 
-    public IEnumerator SpawnWaveOnPath(List<int> path)
+    public IEnumerator SpawnWaveOnPath(/*List<int> path*/)
     {
         if (waveStack.EmptyStack())
         {
@@ -64,18 +65,25 @@ public class WaveSpawner : MonoBehaviour
         Wave wave = waveStack.Top();
         waveStack.Unstack();
 
-        foreach (int nodeIndex in path)
+        //foreach (int nodeIndex in path)
+        //{
+        //    GameObject randomEnemy = wave.enemies[Random.Range(0, wave.enemies.Count)];
+        //    SpawnEnemy(randomEnemy, nodeIndex);
+        //    yield return new WaitForSeconds(1f / wave.rate);
+        //}
+        for (int i = 0; i < wave.count; i++)
         {
             GameObject randomEnemy = wave.enemies[Random.Range(0, wave.enemies.Count)];
-            SpawnEnemy(randomEnemy, nodeIndex);
+            SpawnEnemy(randomEnemy);
             yield return new WaitForSeconds(1f / wave.rate);
         }
     }
 
-    void SpawnEnemy(GameObject enemy, int nodeIndex)
+    void SpawnEnemy(GameObject enemy/*, int nodeIndex*/)
     {
-        Vector3 spawnPosition = new Vector3(pruebaGrafo.nodosCoords[nodeIndex].x, 0.5f, pruebaGrafo.nodosCoords[nodeIndex].z);
-        Instantiate(enemy, spawnPosition, spawnPoint.rotation);
+        Instantiate(enemy, spawnPoint.position, spawnPoint.rotation);
+        //Vector3 spawnPosition = new Vector3(pruebaGrafo.nodosCoords[nodeIndex].x, 0.5f, pruebaGrafo.nodosCoords[nodeIndex].z);
+        //Instantiate(enemy, spawnPosition, spawnPoint.rotation);
         EnemiesAlive++;
     }
 }

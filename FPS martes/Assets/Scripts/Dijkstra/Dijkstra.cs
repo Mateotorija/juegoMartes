@@ -3,10 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AlgDijkstra : MonoBehaviour
+public class Dijkstra : MonoBehaviour
 {
     public static int[] distance;
-    public static string[] nodos;
+    public static Nodos[] nodes;
 
     private static int MinimumDistance(int[] distance, bool[] shortestPathTreeSet, int verticesCount)
     {
@@ -28,7 +28,7 @@ public class AlgDijkstra : MonoBehaviour
         return minIndex;
     }
 
-    public static void Dijkstra(GrafoMA grafo, int source)
+    public static Nodos[] AlgDijkstra(GrafoMA grafo, int source, Nodos[] Nodos, int objective)
     {
         // obtengo la matriz de adyacencia del TDA_Grafo
         int[,] graph = grafo.MAdy;
@@ -39,9 +39,11 @@ public class AlgDijkstra : MonoBehaviour
         // obtengo el indice del nodo elegido como origen a partir de su valor
         source = grafo.Vert2Indice(source);
 
+
         // vector donde se van a guardar los resultados de las distancias entre 
         // el origen y cada vertice del grafo
         distance = new int[verticesCount];
+
 
         bool[] shortestPathTreeSet = new bool[verticesCount];
 
@@ -65,7 +67,6 @@ public class AlgDijkstra : MonoBehaviour
         // la distancia al nodo origen es 0
         distance[source] = 0;
         nodos1[source] = nodos2[source] = grafo.Etiqs[source];
-
         // recorro todos los nodos (vertices)
         for (int count = 0; count < verticesCount - 1; ++count)
         {
@@ -83,14 +84,17 @@ public class AlgDijkstra : MonoBehaviour
                     // guardo los nodos para reconstruir el camino
                     nodos1[v] = grafo.Etiqs[u];
                     nodos2[v] = grafo.Etiqs[v];
+
+
                 }
             }
         }
 
+        nodes = new Nodos[verticesCount];
         // construyo camino de nodos
-        nodos = new string[verticesCount];
+
         int nodOrig = grafo.Etiqs[source];
-        for (int i = 0; i < verticesCount; i++)
+        for (int i = 0; i < objective; i++)
         {
             if (nodos1[i] != -1)
             {
@@ -107,19 +111,33 @@ public class AlgDijkstra : MonoBehaviour
                             break;
                         }
                     }
+                    nodOrig = l1[0];
                 }
                 for (int j = 0; j < l1.Count; j++)
                 {
                     if (j == 0)
                     {
-                        nodos[i] = l1[j].ToString();
+                        nodes[j] = Nodos[source];
                     }
                     else
                     {
-                        nodos[i] += "," + l1[j].ToString();
+                        int nodeIndex = l1[j];
+                        if(nodeIndex >= 0 && nodeIndex < Nodos.Length)
+                        {
+                            nodes[j] = Nodos[nodeIndex];
+                            Debug.Log($"Nodo[{j}]: {nodes[j].IdNode}");
+                            //nodes[j] = Nodos[l1[j]];
+                        }
+                        else
+                        {
+                            Debug.LogError($"Error: Índice {nodeIndex} fuera de límites.");
+                        }
                     }
+                    Debug.Log($"Nodo[{j}]: {nodes[j].IdNode}");
                 }
             }
         }
+
+        return nodes;
     }
 }

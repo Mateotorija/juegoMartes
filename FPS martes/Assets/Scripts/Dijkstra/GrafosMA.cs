@@ -2,18 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GrafoMA : MonoBehaviour, GrafoTDA
+public class GrafoMA : GrafoTDA
 {
     static int n = 100;
     public int[,] MAdy;
     public int[] Etiqs;
     public int cantNodos;
-
-    public void InicializarGrafo(int cantNodos)
+    public GameObject[] Nodes;
+    public void InicializarGrafo()
     {
         MAdy = new int[n, n];
         Etiqs = new int[n];
         cantNodos = 0;
+        Nodes = new GameObject[n];
     }
 
     public void AgregarVertice(int v)
@@ -35,10 +36,12 @@ public class GrafoMA : MonoBehaviour, GrafoTDA
         {
             MAdy[k, ind] = MAdy[k, cantNodos - 1];
         }
+
         for (int k = 0; k < cantNodos; k++)
         {
             MAdy[ind, k] = MAdy[cantNodos - 1, k];
         }
+
         Etiqs[ind] = Etiqs[cantNodos - 1];
         cantNodos--;
     }
@@ -50,12 +53,13 @@ public class GrafoMA : MonoBehaviour, GrafoTDA
         {
             i--;
         }
+
         return i;
     }
 
     public ConjuntoTDA Vertices()
     {
-        ConjuntoTDA Vert = new ConjuntoLD();
+        ConjuntoTDA Vert = new ConjuntoTA();
         Vert.InicializarConjunto();
         for (int i = 0; i < cantNodos; i++)
         {
@@ -68,7 +72,6 @@ public class GrafoMA : MonoBehaviour, GrafoTDA
     {
         int o = Vert2Indice(v1);
         int d = Vert2Indice(v2);
-        //Debug.Log($"v1: {v1}, v2: {v2}, o: {o}, d: {d}");
         MAdy[o, d] = peso;
     }
 

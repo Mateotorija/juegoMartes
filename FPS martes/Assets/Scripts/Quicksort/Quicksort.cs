@@ -33,6 +33,9 @@ public class Quicksort : MonoBehaviour
                 Target temp = arr[right];
                 arr[right] = arr[left];
                 arr[left] = temp;
+                
+                left++;
+                right--;
             }
             else
                 return right;

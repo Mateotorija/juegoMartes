@@ -2,71 +2,76 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum TargetType
-{
-    yellow,
-    white,
-    red,
-    blue
-}
 public class EnemyMovement : MonoBehaviour
 {
     public float speed = 1f;
-    public TargetType TargetType;
 
-    public static int YellowTarget;
-    public static int WhiteTarget;
-    public static int RedTarget;
-    public static int BlueTarget;
-
-    private Transform targets;
-    private int wavepointIndex = 0;
+    private GrafoMA _grafo;
+    private Nodos[] nodes;
+    private int currentNodeIndex = 0;
 
     private void Start()
     {
-        targets = Waypoints.points[0];
-    }
+        _grafo = GrafoManager.Grafo;
 
-    // EL PREFAB SE DIRIGE A CADA WAYPOINT
-
-    private void Update()
-    {
-        Vector3 dir = targets.position - transform.position;
-        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
-
-        if (Vector3.Distance(transform.position, targets.position) <+ 0.2f)
+        nodes = new Nodos[_grafo.cantNodos];
+        if(nodes != null && _grafo != null)
         {
-            GetNextWaypoint();
-            transform.LookAt(targets);
-        }
-    }
-
-    // cuando llega la ultimop waypoint muere/desapwnea
-    void GetNextWaypoint()
-    {
-        if (wavepointIndex < Waypoints.points.Length - 1)
-        {
-            wavepointIndex++;
-            targets = Waypoints.points[wavepointIndex];
+            nodes = Dijkstra.AlgDijkstra(_grafo, 1, nodes, 3);
+            SetTargetNode(currentNodeIndex);
+            Debug.Log("Good");
         }
         else
         {
-            Die();
+            Debug.LogError("La referencia 'Nodos' es nula.");
+        }
+        
+
+        
+    }
+
+    private void Update()
+    {
+        MoveToTarget();
+    }
+
+    void MoveToTarget()
+    {
+        if(Vector3.Distance(transform.position, nodes[currentNodeIndex].Position) <= 0.2f)
+        {
+            currentNodeIndex++;
+
+            if(currentNodeIndex < nodes.Length)
+            {
+                SetTargetNode(currentNodeIndex);
+            }
+            else
+            {
+                Die();
+            }
+        }
+        else
+        {
+            Vector3 dir = nodes[currentNodeIndex].Position - transform.position;
+            transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
         }
     }
 
+    void SetTargetNode(int index)
+    {
+        if(nodes != null && index >= 0 && index < nodes.Length && nodes[index] != null)
+        {
+            transform.LookAt(nodes[index].Position);
+        }
+        else
+        {
+            Debug.LogWarning($"Attempted to access null or out-of-bounds node at index {index}.");
+        }
+        
+    }
     public void Die()
     {
         WaveSpawner.EnemiesAlive++;
-
-        if (TargetType == TargetType.yellow)
-            YellowTarget++;
-        else if (TargetType == TargetType.white)
-            WhiteTarget++;
-        else if (TargetType == TargetType.red)
-            RedTarget++;
-        else if (TargetType == TargetType.blue)
-            BlueTarget++;
 
         Destroy(gameObject);
     }

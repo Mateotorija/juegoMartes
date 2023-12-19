@@ -6,6 +6,10 @@ TagManager:
   tags:
   - CinemachineTarget
   - Target
+  - Yellow
+  - White
+  - Red
+  - Blue
   layers:
   - Default
   - TransparentFX

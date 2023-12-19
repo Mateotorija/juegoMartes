@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Waypoints : MonoBehaviour
 {
-    private GrafoMA grafo;
+    //private GrafoMA grafo;
     public static Transform[] points;
 
     void Awake()
@@ -15,4 +15,5 @@ public class Waypoints : MonoBehaviour
             points[i] = transform.GetChild(i);
         }
     }
+    
 }

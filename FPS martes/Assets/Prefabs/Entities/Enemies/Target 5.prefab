@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 9109834675356826237}
   - component: {fileID: 2594934850386264275}
   - component: {fileID: 6536425590872984102}
-  m_Layer: 0
+  - component: {fileID: 576798789995803623}
+  m_Layer: 10
   m_Name: Target 5
-  m_TagString: Untagged
+  m_TagString: Blue
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,7 +48,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5.5
-  TargetType: 3
 --- !u!136 &6536425590872984102
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -62,6 +62,34 @@ CapsuleCollider:
   m_Height: 1.0788045
   m_Direction: 2
   m_Center: {x: 0, y: 0.40638858, z: 0.087465525}
+--- !u!114 &576798789995803623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4021292712600014708}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f1f0247c47e1d7845a46bd681e7bc317, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 5.5
+  onBlueDie:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 576798789995803623}
+        m_TargetAssemblyTypeName: Blue, Assembly-CSharp
+        m_MethodName: Die
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1001 &697469116002861964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -72,6 +100,10 @@ PrefabInstance:
     - target: {fileID: 193028, guid: 053e2f3246f04c145a79bb33e7e60b8f, type: 3}
       propertyPath: m_Name
       value: RubberDuck_Blue
+      objectReference: {fileID: 0}
+    - target: {fileID: 193028, guid: 053e2f3246f04c145a79bb33e7e60b8f, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 450734, guid: 053e2f3246f04c145a79bb33e7e60b8f, type: 3}
       propertyPath: m_RootOrder
