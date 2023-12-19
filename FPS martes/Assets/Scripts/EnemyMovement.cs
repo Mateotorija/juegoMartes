@@ -10,24 +10,21 @@ public class EnemyMovement : MonoBehaviour
     private Nodos[] nodes;
     private int currentNodeIndex = 0;
 
+
     private void Start()
     {
         _grafo = GrafoManager.Grafo;
 
-        nodes = new Nodos[_grafo.cantNodos];
-        if(nodes != null && _grafo != null)
+        nodes = GrafoManager.DijkstraPath;
+
+        if(nodes != null && nodes.Length > 0)
         {
-            nodes = Dijkstra.AlgDijkstra(_grafo, 1, nodes, 3);
             SetTargetNode(currentNodeIndex);
-            Debug.Log("Good");
         }
         else
         {
             Debug.LogError("La referencia 'Nodos' es nula.");
         }
-        
-
-        
     }
 
     private void Update()

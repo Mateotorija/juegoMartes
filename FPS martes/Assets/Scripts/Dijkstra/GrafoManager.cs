@@ -12,6 +12,7 @@ public struct Aristas
 public class GrafoManager : MonoBehaviour
 {
     public static GrafoMA Grafo;
+    public static Nodos[] DijkstraPath;
 
     private void Start()
     {
@@ -39,7 +40,27 @@ public class GrafoManager : MonoBehaviour
                 Debug.Log($"Arista agregada - Origen: {nodo.IdNode}, Destino: {neig.IdNode}, Peso: {nodo.Cost}");
             }
         }
+
+        Nodos[] nodosArray = new Nodos[nodos.Length];
+
+        for (int i = 0; i < nodos.Length; i++)
+        {
+            nodosArray[i] = nodos[i];
+        }
+        DijkstraPath = CalculatePathDijkstra(1, 13, nodosArray);
     }
+
+    private Nodos[] CalculatePathDijkstra(int sourceNodeId, int objetiveNodeId, Nodos[] allNodes)
+    {
+        if (sourceNodeId < 0 || sourceNodeId >= Grafo.cantNodos || objetiveNodeId < 0 || objetiveNodeId >= Grafo.cantNodos)
+        {
+            Debug.LogError("Error: Nodos de origen o destino fuera de rango.");
+            return null;
+        }
+
+        return Dijkstra.AlgDijkstra(Grafo, sourceNodeId, allNodes, objetiveNodeId);
+    }
+
     //GrafoMA grafo = new GrafoMA();
     //[SerializeField] List<Aristas> aristas = new();
     //[SerializeField] int cantVertices = 14;
