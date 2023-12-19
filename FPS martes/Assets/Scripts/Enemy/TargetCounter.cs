@@ -49,16 +49,9 @@ public class TargetCounter : MonoBehaviour
         //{
         //    Debug.Log(targets[i].targetName + ": " + targets[i].score);
         //}
-        if (targets != null && targets.Length > 0)
-        {
-            _counterText1.text = targets[3].targetName.ToString() + ": " + targets[3].score.ToString();
-            _counterText2.text = targets[2].targetName.ToString() + ": " + targets[2].score.ToString();
-            _counterText3.text = targets[1].targetName.ToString() + ": " + targets[1].score.ToString();
-            _counterText4.text = targets[0].targetName.ToString() + ": " + targets[0].score.ToString();
-        }
-        else
-        {
-            Debug.LogWarning("Targets array is null or empty.");
-        }
+        _counterText1.text = targets[3].targetName.ToString() + ": " + targets[3].score.ToString();
+        _counterText2.text = targets[2].targetName.ToString() + ": " + targets[2].score.ToString();
+        _counterText3.text = targets[1].targetName.ToString() + ": " + targets[1].score.ToString();
+        _counterText4.text = targets[0].targetName.ToString() + ": " + targets[0].score.ToString();
     }
 }

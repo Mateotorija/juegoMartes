@@ -23,7 +23,6 @@ public class Dijkstra : MonoBehaviour
                 minIndex = v;
             }
         }
-
         // devuelvo el nodo calculado
         return minIndex;
     }
@@ -42,7 +41,6 @@ public class Dijkstra : MonoBehaviour
         // vector donde se van a guardar los resultados de las distancias entre 
         // el origen y cada vertice del grafo
         distance = new int[verticesCount];
-
 
         bool[] shortestPathTreeSet = new bool[verticesCount];
 
@@ -83,8 +81,6 @@ public class Dijkstra : MonoBehaviour
                     // guardo los nodos para reconstruir el camino
                     nodos1[v] = grafo.Etiqs[u];
                     nodos2[v] = grafo.Etiqs[v];
-
-
                 }
             }
         }
@@ -122,7 +118,7 @@ public class Dijkstra : MonoBehaviour
             if (!added)
                 break;
         }
-        Debug.Log($"Camino: {string.Join(" -> ", l1)}");
+        //Debug.Log($"Camino: {string.Join(" -> ", l1)}");
 
         // Si se encontró un camino válido, asigna los nodos al arreglo 'nodes'.
         if (l1.Count == verticesCount)

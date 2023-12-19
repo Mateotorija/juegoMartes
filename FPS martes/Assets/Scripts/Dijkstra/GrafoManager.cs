@@ -16,13 +16,16 @@ public class GrafoManager : MonoBehaviour
 
     private void Start()
     {
+        //Creo una nueva instancia de GrafoMA y la inicializo
         Grafo = new GrafoMA();
         Grafo.InicializarGrafo();
 
+        //Encuentro todos los objetos de tipo Nodos en la escena
         Nodos[] nodos = FindObjectsOfType<Nodos>();
 
         Debug.Log($"Número de nodos encontrados: {nodos.Length}");
 
+        //Agrego los nodos al grafo
         foreach (var nodo in nodos)
         {
             Grafo.AgregarVertice(nodo.IdNode);
@@ -31,6 +34,7 @@ public class GrafoManager : MonoBehaviour
 
             Debug.Log($"Nodo agregado - ID: {nodo.IdNode}");
         }
+        //Agrego las aristas al grafo
         foreach (var nodo in nodos)
         {
             foreach (var neig in nodo.Neighbors)
@@ -40,13 +44,14 @@ public class GrafoManager : MonoBehaviour
                 Debug.Log($"Arista agregada - Origen: {nodo.IdNode}, Destino: {neig.IdNode}, Peso: {nodo.Cost}");
             }
         }
-
+        //Creo un arreglo de nodos a partir del array encontrado
         Nodos[] nodosArray = new Nodos[nodos.Length];
 
         for (int i = 0; i < nodos.Length; i++)
         {
             nodosArray[i] = nodos[i];
         }
+        //Calculo la ruta utilizando Dijkstra y la asigno
         DijkstraPath = CalculatePathDijkstra(1, 13, nodosArray);
     }
 
@@ -57,60 +62,7 @@ public class GrafoManager : MonoBehaviour
             Debug.LogError("Error: Nodos de origen o destino fuera de rango.");
             return null;
         }
-
+        //Llamo al metodo AlgDijkstra de Dijkstra para calcular la ruta
         return Dijkstra.AlgDijkstra(Grafo, sourceNodeId, allNodes, objetiveNodeId);
     }
-
-    //GrafoMA grafo = new GrafoMA();
-    //[SerializeField] List<Aristas> aristas = new();
-    //[SerializeField] int cantVertices = 14;
-    //[SerializeField] public Nodos[] nodos;
-    //public Nodos[] path;
-    //int nextPos = 6;
-
-    //private void Awake()
-    //{
-    //    nodos = new Nodos[cantVertices];
-    //    grafo.InicializarGrafo();
-
-    //    for (int i = 0; i < cantVertices; i++)
-    //    {
-    //        nodos[i] = GameObject.Find("Waypoint" + i).GetComponent<Nodos>();
-    //    }
-    //    for (int i = 0; i < cantVertices; i++)
-    //    {
-    //        grafo.AgregarVertice(nodos[i].IdNode);
-    //    }
-
-    //    foreach (var arista in aristas)
-    //    {
-    //        grafo.AgregarArista(arista.origen, arista.destino, arista.peso);
-    //    }
-    //}
-
-    //public int NextPositionAvailable(int currentPos)
-    //{
-    //    int newPos = 0;
-    //    for (int i = 0; i < cantVertices; i++)
-    //    {
-    //        if(grafo.ExisteArista(currentPos, i))
-    //        {
-    //            newPos = i;
-    //            break;
-    //        }
-    //    }
-    //    return newPos;
-    //}
-    //public Vector2 GetPosition(Vector2 vector, int nodo)
-    //{
-    //    vector = nodos[nodo].gameObject.transform.position;
-    //    return vector;
-    //}
-    //public Nodos[] PathFinding(int currentNode)
-    //{
-    //    path = new Nodos[cantVertices];
-    //    path = Dijkstra.AlgDijkstra(grafo, currentNode, nodos, nextPos);
-
-    //    return path;
-    //}
 }

@@ -72,7 +72,6 @@ public class RoundTime : MonoBehaviour
             else
                 _gameManager._losserText.SetActive(true);
             _counter.SortAndPrint();
-            //_score.UpdateText();
             oneTime = true;
         }
     }

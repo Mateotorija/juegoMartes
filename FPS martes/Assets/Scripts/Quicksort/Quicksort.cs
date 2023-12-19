@@ -6,39 +6,42 @@ public class Quicksort : MonoBehaviour
 {
     static public void QuickSort(Target[] arr, int left, int right)
     {
-        int pivot;
-        if(left < right)
+        if (left < right)
         {
-            pivot = Partition(arr, left, right);
-            if (pivot > 1)
-                QuickSort(arr, left, pivot - 1);
-            if(pivot + 1 < right)
-                QuickSort(arr, pivot + 1, right);
+            int pivotIndex = Partition(arr, left, right);
+
+            QuickSort(arr, left, pivotIndex - 1);
+            QuickSort(arr, pivotIndex + 1, right);
         }
     }
     static public int Partition(Target[] arr, int left, int right)
     {
-        int pivot;
-        int aux = (left + right) / 2;
-        pivot = arr[aux].score;
+        //Seleccionar el elemento más a la derecha como pivote
+        int pivot = arr[right].score; 
 
-        while (true)
+        int i = left - 1;
+
+        for (int j = left; j < right; j++)
         {
-            while (arr[left].score < pivot)
-                left++;
-            while (arr[right].score > pivot)
-                right--;
-            if (left < right)
+            //Si el elemento actual es menor o igual al pivote
+            if (arr[j].score <= pivot)
             {
-                Target temp = arr[right];
-                arr[right] = arr[left];
-                arr[left] = temp;
-                
-                left++;
-                right--;
+                i++;
+                Swap(arr, i, j);
             }
-            else
-                return right;
         }
+
+        //Intercambiar el pivote con el elemento en la posición correcta
+        Swap(arr, i + 1, right);
+
+        //Devolver la nueva posición del pivote
+        return i + 1;
+    }
+
+    static public void Swap(Target[] arr, int i, int j)
+    {
+        Target temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
     }
 }
