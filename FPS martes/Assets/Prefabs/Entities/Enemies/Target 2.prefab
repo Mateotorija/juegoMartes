@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 7720902077309188165}
   - component: {fileID: 8256841901928265311}
   - component: {fileID: -2010582431916382179}
-  - component: {fileID: 5720648983959134661}
   - component: {fileID: -1856337143621923507}
   m_Layer: 10
   m_Name: Target 2
@@ -64,34 +63,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapa: {fileID: 4412797353705618622, guid: afd6fba7efbdc1a4c9e28d96cf140409, type: 3}
   velocity: 5
---- !u!114 &5720648983959134661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8478554887292581623}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa0e2e0973ac44548be8c399fa86c22e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5.5
-  onYellowDie:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 5720648983959134661}
-        m_TargetAssemblyTypeName: Yellow, Assembly-CSharp
-        m_MethodName: Die
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &-1856337143621923507
 MonoBehaviour:
   m_ObjectHideFlags: 0

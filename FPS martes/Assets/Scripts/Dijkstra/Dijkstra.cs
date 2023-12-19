@@ -88,7 +88,7 @@ public class Dijkstra : MonoBehaviour
                 }
             }
         }
-
+        // Inicializa el arreglo de nodos para almacenar el camino más corto.
         nodes = new Nodos[verticesCount];
         //construyo camino de nodos
         int nodOrig = grafo.Etiqs[source];
@@ -97,11 +97,14 @@ public class Dijkstra : MonoBehaviour
         l1.Add(nodos1[objective]);
         l1.Add(nodos2[objective]);
 
+        // Reconstruye el camino agregando nodos de acuerdo al orden en que se encuentran en los arreglos.
         while (l1.Count < verticesCount)
         {
             bool added = false;
+            // Itera sobre los nodos.
             for (int k = 0; k < verticesCount; k++)
             {
+                // Agrega nodos al inicio y al final de la lista para reconstruir el camino.
                 if (!l1.Contains(nodos1[k]))
                 {
                     l1.Insert(0, nodos1[k]);
@@ -115,11 +118,13 @@ public class Dijkstra : MonoBehaviour
                     break;
                 }
             }
+            // Si no se añade ningún nodo, sale del bucle.
             if (!added)
                 break;
         }
         Debug.Log($"Camino: {string.Join(" -> ", l1)}");
 
+        // Si se encontró un camino válido, asigna los nodos al arreglo 'nodes'.
         if (l1.Count == verticesCount)
         {
             for (int k = 0; k < l1.Count; k++)
@@ -129,79 +134,10 @@ public class Dijkstra : MonoBehaviour
         }
         else
         {
+            // Muestra un mensaje de error si no se encontró un camino válido.
             Debug.LogError("Error: No se encontró un camino válido.");
         }
-
+        // Devuelve el arreglo de nodos que representan el camino más corto.
         return nodes;
-
-        //for (int j = 0; j < verticesCount; j++)
-        //{
-        //    if (nodos1[j] != -1 /*&& nodos2[j] == objective*/)
-        //    {
-
-        //        while (l1.Count < verticesCount/*l1[0] != nodOrig*/)
-        //        {
-        //            bool added = false; //
-        //            for (int k = 0; k < verticesCount; k++)
-        //            {
-        //                if (!l1.Contains(nodos1[k])/*k != source && l1[0] == nodos2[k]*/)
-        //                {
-        //                    l1.Insert(0, nodos1[k]);
-        //                    added = true; //
-        //                    break;
-        //                }
-        //                else if (!l1.Contains(nodos2[k]))
-        //                {
-        //                    l1.Add(nodos2[k]);
-        //                    added = true;
-        //                    break;
-        //                }
-        //            }
-        //            if (!added)
-        //                break;
-        //            nodOrig = l1[0];
-        //        }
-
-        //        Debug.Log($"Camino: {string.Join(" -> ", l1)}");
-
-        //        if (l1.Count <= nodes.Length)
-        //        {
-        //            for (int k = 0; k < l1.Count; k++)
-        //            {
-        //                nodes[k] = Nodos[l1[k] - 1];
-        //            }
-        //        }
-        //        else
-        //        {
-        //            Debug.LogError("Error: El tamaño del camino excede el tamaño del array 'nodes'.");
-        //        }
-
-        //        //for (int k = 0; k < l1.Count; k++)
-        //        //{
-        //        //    if (k == 0)
-        //        //    {
-        //        //        nodes[k] = Nodos[source];
-        //        //    }
-        //        //    else
-        //        //    {
-        //        //        nodes[k] = Nodos[l1[k] - 1];
-        //        //        //int nodeIndex = l1[j];
-        //        //        //if(nodeIndex >= 0 && nodeIndex < Nodos.Length)
-        //        //        //{
-        //        //        //    nodes[j] = Nodos[nodeIndex];
-        //        //        //    Debug.Log($"Nodo[{j}]: {nodes[j].IdNode}");
-        //        //        //    //nodes[j] = Nodos[l1[j]];
-        //        //        //}
-        //        //        //else
-        //        //        //{
-        //        //        //    Debug.LogError($"Error: Índice {nodeIndex} fuera de límites.");
-        //        //        //}
-        //        //    }
-        //        //    //Debug.Log($"Nodo[{j}]: {nodes[j].IdNode}");
-        //        //}
-        //    }
-        //}
-
-        //return nodes;
     }
 }

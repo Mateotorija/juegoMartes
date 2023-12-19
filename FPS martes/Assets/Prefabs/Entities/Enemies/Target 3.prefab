@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8014853915313266129}
   - component: {fileID: 8377216054113744180}
   - component: {fileID: 318097614927145}
-  - component: {fileID: -8956899736241400937}
   m_Layer: 10
   m_Name: Target 3
   m_TagString: White
@@ -62,34 +61,6 @@ CapsuleCollider:
   m_Height: 1.1255488
   m_Direction: 2
   m_Center: {x: 0.07653773, y: 0.39045846, z: 0.081641436}
---- !u!114 &-8956899736241400937
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1616297143702060623}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee4e4f99f75b676468317261451c584c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5.5
-  onWhiteDie:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: -8956899736241400937}
-        m_TargetAssemblyTypeName: White, Assembly-CSharp
-        m_MethodName: Die
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1001 &4606521741225420243
 PrefabInstance:
   m_ObjectHideFlags: 0
