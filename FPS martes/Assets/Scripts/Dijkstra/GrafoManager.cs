@@ -23,7 +23,7 @@ public class GrafoManager : MonoBehaviour
         //Encuentro todos los objetos de tipo Nodos en la escena
         Nodos[] nodos = FindObjectsOfType<Nodos>();
 
-        Debug.Log($"Número de nodos encontrados: {nodos.Length}");
+        //Debug.Log($"Número de nodos encontrados: {nodos.Length}");
 
         //Agrego los nodos al grafo
         foreach (var nodo in nodos)
@@ -32,7 +32,7 @@ public class GrafoManager : MonoBehaviour
 
             Grafo.Nodes[Grafo.cantNodos - 1] = nodo.gameObject;
 
-            Debug.Log($"Nodo agregado - ID: {nodo.IdNode}");
+            //Debug.Log($"Nodo agregado - ID: {nodo.IdNode}");
         }
         //Agrego las aristas al grafo
         foreach (var nodo in nodos)
@@ -41,7 +41,7 @@ public class GrafoManager : MonoBehaviour
             {
                 Grafo.AgregarArista(nodo.IdNode, neig.IdNode, nodo.Cost);
 
-                Debug.Log($"Arista agregada - Origen: {nodo.IdNode}, Destino: {neig.IdNode}, Peso: {nodo.Cost}");
+                //Debug.Log($"Arista agregada - Origen: {nodo.IdNode}, Destino: {neig.IdNode}, Peso: {nodo.Cost}");
             }
         }
         //Creo un arreglo de nodos a partir del array encontrado

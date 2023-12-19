@@ -37,7 +37,6 @@ public class Quicksort : MonoBehaviour
         //Devolver la nueva posición del pivote
         return i + 1;
     }
-
     static public void Swap(Target[] arr, int i, int j)
     {
         Target temp = arr[i];
